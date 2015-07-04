@@ -1,0 +1,28 @@
+#contants
+plugin.tx_t3sponsors {
+  # cat=T3sponsors/logoSmallMaxH; type=int;label=Max height of small logo
+  logoSmallMaxH = 30
+  # cat=T3sponsors/logoSmallMaxW; type=int;label=Max width of small logo
+  logoSmallMaxW = 30
+
+  # cat=T3sponsors/logoBigMaxH; type=int;label=Max height of big logo
+  logoBigMaxH = 120
+  # cat=T3sponsors/logoBigMaxW; type=int;label=Max width of big logo
+  logoBigMaxW = 120
+
+  # cat=T3sponsors/pictureMaxH; type=int;label=Max height of pictures
+  pictureMaxH = 160
+  # cat=T3sponsors/pictureMaxW; type=int;label=Max width of pictures
+  pictureMaxW = 160
+
+
+  # cat=T3sponsors/sponsorlist; type=string;label=HTML Template of list view
+  sponsorlistTemplate = EXT:t3sponsors/templates/sponsorlist.html
+
+  # cat=T3sponsors/sponsorshowpage; type=int+;label=PID of page for sponsor details
+  sponsorshowpage = 0
+
+  # cat=T3sponsors/sponsorlistpage; type=int+;label=PID of page for sponsor list
+  sponsorlistpage = 0
+
+}

@@ -1,0 +1,110 @@
+# setup
+includeLibs.tx_rnbase_controller = EXT:rn_base/class.tx_rnbase_controller.php
+
+includeLibs.tx_rnbase_dam1 = EXT:dam/lib/class.tx_dam_tsfe.php
+includeLibs.tx_rnbase_dam2 = EXT:rn_base/util/class.tx_rnbase_util_TSDAM.php
+
+
+plugin.tx_t3sponsors                = USER
+plugin.tx_t3sponsors.flexform       = flexform_main.xml
+plugin.tx_t3sponsors.userFunc       = tx_rnbase_controller->main
+plugin.tx_t3sponsors.defaultAction  = tx_t3sponsors_actions_SponsorList
+plugin.tx_t3sponsors.qualifier      = t3sponsors
+plugin.tx_t3sponsors.templatePath   = EXT:t3sponsors/templates
+plugin.tx_t3sponsors.locallangFilename = EXT:t3sponsors/locallang.xml
+
+
+tt_content.list.20.tx_t3sponsors    =< plugin.tx_t3sponsors
+
+lib.t3sponsors.category {
+  name.wrap = <b>|</b>
+  logo =< tt_content.image.20
+  logo {
+    imgList.field = logo
+    imgPath = uploads/tx_t3sponsors/
+    maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+  damlogo = IMAGE
+  damlogo.file.import.cObject = USER
+  damlogo.file.import.cObject {
+    userFunc=tx_dam_tsfe->fetchFileList
+    refField=logo
+    refTable=tx_t3sponsors_categories
+    file.maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    file.maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+}
+lib.t3sponsors.sponsor {
+  links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
+  pagebrowser.limit = 20
+  roll.value = 1
+  dampictures = USER
+  dampictures {
+    userFunc = tx_rnbase_util_TSDAM->printImages
+    refField = pictures
+    refTable = tx_t3sponsors_companies
+    template = EXT:rn_base/res/simplegallery.html
+    media {
+      file = IMAGE
+      file.file.import.field = file
+      file.file.maxH = {$plugin.tx_t3sponsors.pictureMaxH}
+      file.file.maxW = {$plugin.tx_t3sponsors.pictureMaxW}
+    }
+  }
+  damlogo = IMAGE
+  damlogo.file.import.cObject = USER
+  damlogo.file.import.cObject {
+    userFunc=tx_dam_tsfe->fetchFileList
+    refField=logo
+    refTable=tx_t3sponsors_companies
+    file.maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    file.maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+
+  logo =< tt_content.image.20
+  logo {
+    imgList.field = logo
+    imgPath = uploads/tx_t3sponsors/
+    maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+  name1.wrap = <b>|</b>
+  description {
+  	parseFunc = < lib.parseFunc_RTE
+  }
+  www {
+  	typolink.target = _BLANK
+  	typolink.parameter.field = www
+    ifBlank = -
+  }
+  email {
+  	typolink.parameter.field = email
+    ifBlank = -
+  }
+  category =< lib.t3sponsors.category
+}
+
+# Ab hier Konfiguration der einzelnen Views 
+plugin.tx_t3sponsors {
+  sponsorlistTemplate = {$plugin.tx_t3sponsors.sponsorlistTemplate}
+
+  sponsorlist {
+    options.orderby.SPONSOR.NAME1 = asc
+#    options.orderby.RAND = 1
+#    options.limit = 1
+#    options.debug = 1
+#    categories = 1,2
+    sponsor =< lib.t3sponsors.sponsor
+  }
+  sponsorshow {
+    sponsor =< lib.t3sponsors.sponsor
+    sponsor {
+		  damlogo.file.maxH = {$plugin.tx_t3sponsors.logoBigMaxH}
+		  damlogo.file.maxW = {$plugin.tx_t3sponsors.logoBigMaxW}
+		  name1.wrap >
+    }
+  }
+
+}
+

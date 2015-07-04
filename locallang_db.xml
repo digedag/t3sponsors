@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 't3sponsors'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="common_debugSQL">Debug</label>
+			<label index="plugin.t3sponsors.label">T3 Sponsors</label>
+			<label index="plugin.t3sponsors.flexform.tab.common">Common</label>
+			<label index="plugin.t3sponsors.flexform.tab.tssetup">TS-Setup</label>
+			<label index="plugin.t3sponsors.flexform.tssetup">plugin.tx_t3sponsors.</label>
+			<label index="plugin.t3sponsors.flexform.tab.SponsorList">List of sponsors</label>
+			<label index="plugin.t3sponsors.flexform.action">View</label>
+			<label index="plugin.t3sponsors.flexform.action.SponsorList">List of sponsors</label>
+			<label index="plugin.t3sponsors.flexform.action.SponsorShow">Sponsor single view</label>
+			<label index="plugin.t3sponsors.flexform.template">HTML-Template</label>
+
+			<label index="plugin.t3sponsors.flexform.categories">Categories</label>
+			<label index="plugin.t3sponsors.flexform.sponsors">Sponsors</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.rand">Randomize sorting</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.limit">Limit list size</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.singlepid">Detailspage</label>
+
+			<label index="tx_t3sponsors_companies">Sponsor</label>
+			<label index="tx_t3sponsors_companies_tabcontact">Contact</label>
+			<label index="tx_t3sponsors_companies.name1">Name</label>
+			<label index="tx_t3sponsors_companies.name2">More name</label>
+			<label index="tx_t3sponsors_companies.description">Description</label>
+			<label index="tx_t3sponsors_companies.comment">Comment</label>
+			<label index="tx_t3sponsors_companies.logo">Logo</label>
+			<label index="tx_t3sponsors_companies.pictures">Pictures</label>
+			<label index="tx_t3sponsors_companies.www">Web</label>
+			<label index="tx_t3sponsors_companies.email">Email</label>
+			<label index="tx_t3sponsors_companies.phone">Phone</label>
+			<label index="tx_t3sponsors_companies.fax">Fax</label>
+			<label index="tx_t3sponsors_companies.mobile">Mobile</label>
+			<label index="tx_t3sponsors_companies.address">Address</label>
+			<label index="tx_t3sponsors_companies.zip">Zip</label>
+			<label index="tx_t3sponsors_companies.city">City</label>
+			<label index="tx_t3sponsors_companies.categories">Categories</label>
+			<label index="tx_t3sponsors_companies.hasreport">Enable link to details page</label>
+
+			<label index="tx_t3sponsors_categories">Category of sponsor</label>
+			<label index="tx_t3sponsors_categories.name">Name</label>
+			<label index="tx_t3sponsors_categories.description">Description</label>
+
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="plugin.t3sponsors.flexform.action.SponsorList">Liste von Sponsoren</label>
+			<label index="plugin.t3sponsors.flexform.action.SponsorShow">Sponsor Detailansicht</label>
+
+			<label index="plugin.t3sponsors.flexform.categories">Kategorien</label>
+			<label index="plugin.t3sponsors.flexform.sponsors">Sponsoren</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.rand">Zufällige Sortierung</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.limit">Maximale Anzahl</label>
+			<label index="plugin.t3sponsors.flexform.sponsors.singlepid">Seite für Detailanzeige</label>
+
+			<label index="tx_t3sponsors_companies">Sponsor</label>
+			<label index="tx_t3sponsors_companies_tabcontact">Kontakt</label>
+			<label index="tx_t3sponsors_companies.name1">Name</label>
+			<label index="tx_t3sponsors_companies.name2">Weiter Name</label>
+			<label index="tx_t3sponsors_companies.description">Beschreibung</label>
+			<label index="tx_t3sponsors_companies.comment">Kommentar</label>
+			<label index="tx_t3sponsors_companies.logo">Logo</label>
+			<label index="tx_t3sponsors_companies.pictures">Bilder</label>
+			<label index="tx_t3sponsors_companies.www">Web</label>
+			<label index="tx_t3sponsors_companies.phone">Telefon</label>
+			<label index="tx_t3sponsors_companies.fax">Fax</label>
+			<label index="tx_t3sponsors_companies.mobile">Mobil</label>
+			<label index="tx_t3sponsors_companies.address">Strasse</label>
+			<label index="tx_t3sponsors_companies.zip">PLZ</label>
+			<label index="tx_t3sponsors_companies.city">Stadt</label>
+			<label index="tx_t3sponsors_companies.categories">Kategorien</label>
+			<label index="tx_t3sponsors_companies.hasreport">Link zur Detailseite</label>
+
+			<label index="tx_t3sponsors_categories">Sponsorenkategorie</label>
+			<label index="tx_t3sponsors_categories.name">Name</label>
+			<label index="tx_t3sponsors_categories.description">Beschreibung</label>
+			<label index="tx_t3sponsors_categories.sponsors">Sponsoren</label>
+		</languageKey>
+	</data>
+</T3locallang>

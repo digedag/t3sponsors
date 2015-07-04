@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for t3sponsors frontend strings</description>
+		<type>database</type>
+		<csh_table></csh_table>
+		<fileId>EXT:t3sponsors/locallang.xml</fileId>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="error">Error</label>
+			<label index="label_foundsponsors">Number of sponsors found:</label>
+			<label index="label_sponsor">Sponsor</label>
+			<label index="label_categories">Categories</label>
+			<label index="label_category">Category</label>
+			<label index="label_page">Page</label>
+			<label index="label_description">Description</label>
+			<label index="label_pictures">Pictures</label>
+
+
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="error">Fehler</label>
+			<label index="label_foundsponsors">Gefundene Sponsoren:</label>
+			<label index="label_categories">Kategorien</label>
+			<label index="label_category">Kategorie</label>
+			<label index="label_page">Seite</label>
+			<label index="label_description">Beschreibung</label>
+			<label index="label_pictures">Bilder</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>
