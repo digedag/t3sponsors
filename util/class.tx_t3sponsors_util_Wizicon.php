@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2009 Rene Nitzsche (rene[@]system25.de)
+*  (c) 2009-2015 Rene Nitzsche (rene[@]system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,37 +22,52 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+tx_rnbase::load('tx_rnbase_util_Wizicon');
+
 /**
  * Class that adds the wizard icon.
  *
  * @author	René Nitzsche <rene[@]system25.de>
  */
-class tx_t3sponsors_util_Wizicon {
+class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon {
+	protected function getPluginData() {
+		$plugins = array();
+		$plugins['tx_t3sponsors'] = array(
+			'icon'=>t3lib_extMgm::extRelPath('t3sponsors').'/ext_icon.gif',
+			'title'=>'plugin.t3sponsors.label',
+			'description'=>'plugin.t3sponsors.description',
+		);
+		return $plugins;
+	}
+	protected function getLLFile() {
+		return t3lib_extMgm::extPath('t3sponsors').'locallang_db.xml';
+	}
+
 	/**
 	 * Adds the plugin wizard icon
 	 *
 	 * @param array Input array with wizard items for plugins
 	 * @return array Modified input array, having the items for plugin added.
 	 */
-	function proc($wizardItems)	{
-		global $LANG;
+// 	function proc($wizardItems)	{
+// 		global $LANG;
 
-		$LL = $this->includeLocalLang();
+// 		$LL = $this->includeLocalLang();
 
-		$wizardItems['plugins_tx_t3sponsors'] = array(
-			'icon'=>t3lib_extMgm::extRelPath('t3sponsors').'/ext_icon.gif',
-			'title'=>$LANG->getLLL('plugin.t3sponsors.label',$LL),
-			'description'=>$LANG->getLLL('plugin.t3sponsors.description',$LL),
-			'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=tx_t3sponsors'
-		);
+// 		$wizardItems['plugins_tx_t3sponsors'] = array(
+// 			'icon'=>t3lib_extMgm::extRelPath('t3sponsors').'/ext_icon.gif',
+// 			'title'=>$LANG->getLLL('plugin.t3sponsors.label',$LL),
+// 			'description'=>$LANG->getLLL('plugin.t3sponsors.description',$LL),
+// 			'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=tx_t3sponsors'
+// 		);
 
-		return $wizardItems;
-	}
-	function includeLocalLang()	{
-		$llFile = t3lib_extMgm::extPath('t3sponsors').'locallang_db.xml';
-		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
-		return $LOCAL_LANG;
-	}
+// 		return $wizardItems;
+// 	}
+// 	function includeLocalLang()	{
+// 		$llFile = t3lib_extMgm::extPath('t3sponsors').'locallang_db.xml';
+// 		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
+// 		return $LOCAL_LANG;
+// 	}
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/util/class.tx_t3sponsors_util_Wizicon.php'])	{

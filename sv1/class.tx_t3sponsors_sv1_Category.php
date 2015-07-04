@@ -23,13 +23,12 @@
 ***************************************************************/
 
 require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-require_once(PATH_t3lib.'class.t3lib_svbase.php');
 tx_rnbase::load('tx_rnbase_util_DB');
 
 
 /**
  * Service for accessing category information
- * 
+ *
  * @author Rene Nitzsche
  */
 class tx_t3sponsors_sv1_Category extends t3lib_svbase {
@@ -46,12 +45,10 @@ class tx_t3sponsors_sv1_Category extends t3lib_svbase {
 		$searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Category');
 		return $searcher->search($fields, $options);
 	}
-  
+
 }
 
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Category.php']) {
   include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Category.php']);
 }
-
-?>
