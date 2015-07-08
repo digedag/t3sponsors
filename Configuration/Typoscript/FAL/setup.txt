@@ -1,0 +1,31 @@
+
+plugin.tx_t3sponsors.includeLibs.tx_t3sponsors_fal = EXT:rn_base/util/class.tx_rnbase_util_TSFAL.php
+
+lib.t3sponsors.sponsor.pictures =< lib.t3sponsors.sponsor.dampictures
+lib.t3sponsors.sponsor.pictures {
+	userFunc = tx_rnbase_util_TSFAL->printImages
+  refField = pictures
+  refTable = tx_t3sponsors_companies
+}
+
+
+lib.t3sponsors.sponsor.logo >
+lib.t3sponsors.sponsor.logo = IMAGE
+lib.t3sponsors.sponsor.logo {
+	file.maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+	file.maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+	file.import.cObject = USER
+	file.import.cObject {
+		# Mit dieser Methode wird nur die erste Referenz ausgewertet 
+		userFunc=tx_rnbase_util_TSFAL->fetchFirstReference
+		refField=logo
+		refTable=tx_t3sponsors_companies
+	}
+	file.treatIdAsReference = 1
+}
+lib.t3sponsors.category.logo < lib.t3sponsors.sponsor.logo
+lib.t3sponsors.category.logo {
+	file.import.cObject {
+		refTable=tx_t3sponsors_categories
+	}
+}

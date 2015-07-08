@@ -17,7 +17,7 @@ $TCA['tx_t3sponsors_companies'] = array (
 		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Company.php',
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
 	),
 	'feInterface' => array (
@@ -39,7 +39,7 @@ $TCA['tx_t3sponsors_categories'] = array (
 		'delete' => 'deleted',
 		'enablecolumns' => array (
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
 	),
 	'feInterface' => array (
@@ -47,6 +47,7 @@ $TCA['tx_t3sponsors_categories'] = array (
 	)
 );
 
+require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 
 ////////////////////////////////
@@ -68,7 +69,11 @@ if (TYPO3_MODE=='BE') {
 //	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_t3sponsors_util_Wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'util/class.tx_t3sponsors_util_Wizicon.php';
 }
 
-// Add static TS-config
-t3lib_extMgm::addStaticFile($_EXTKEY,'static/ts/', 'T3 Sponsors');
+tx_rnbase::load('tx_rnbase_util_Extensions');
+tx_rnbase::load('tx_rnbase_util_TYPO3');
 
-?>
+// Add static TS-config
+tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/Base/', 'T3 Sponsors');
+if(tx_rnbase_util_TYPO3::isTYPO60OrHigher())
+	tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/FAL/', 'T3 Sponsors (FAL support)');
+

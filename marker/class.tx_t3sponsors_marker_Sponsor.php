@@ -47,7 +47,8 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 		}
 
 		// Es wird das MarkerArray mit den Daten des Teams gefüllt.
-		$markerArray = $formatter->getItemMarkerArrayWrapped($item->record, $confId , 0, $marker.'_',$item->getColumnNames());
+		$ignore = self::findUnusedCols($item->record, $template, $marker);
+		$markerArray = $formatter->getItemMarkerArrayWrapped($item->record, $confId , $ignore, $marker.'_',$item->getColumnNames());
 		$this->prepareLinks($item, $marker, $markerArray, $subpartArray, $wrappedSubpartArray, $confId, $formatter);
 		if($this->containsMarker($template, $marker.'_CATEGORYS'))
 			$template = $this->_addCategories($template, $item, $formatter, $confId.'category.', $marker.'_CATEGORY');
@@ -57,7 +58,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 		$markerArray = array();
 		$subpartArray = array();
 		$wrappedSubpartArray = array();
-    
+
 		$params['confid'] = $confId;
 		$params['marker'] = $marker;
 		$params['sponsor'] = $item;
@@ -104,7 +105,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 		}
 		else {
 			$linkMarker = $marker . '_' . strtoupper($linkId).'LINK';
-			$remove = intval($formatter->configurations->get($confId.'links.'.$linkId.'.removeIfDisabled')); 
+			$remove = intval($formatter->configurations->get($confId.'links.'.$linkId.'.removeIfDisabled'));
 			$this->disableLink($markerArray, $subpartArray, $wrappedSubpartArray, $linkMarker, $remove > 0);
 		}
 	}
