@@ -1,29 +1,37 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-$TCA['tx_t3sponsors_companies'] = array (
-	'ctrl' => array (
-		'title'     => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies',
-		'label' => 'name1',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'languageField'            => 'sys_language_uid',
-		'transOrigPointerField'    => 'l18n_parent',
-		'transOrigDiffSourceField' => 'l18n_diffsource',
-		'dividers2tabs' => TRUE,
-		'default_sortby' => 'ORDER BY name1 asc',
-		'delete' => 'deleted',
-		'enablecolumns' => array (
-			'disabled' => 'hidden',
-		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Company.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
-	),
-	'feInterface' => array (
-		'fe_admin_fieldList' => 'name1,name2,description,comment',
-	)
-);
+require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
+tx_rnbase::load('tx_rnbase_util_TYPO3');
+tx_rnbase::load('tx_rnbase_util_Extensions');
+
+if(!tx_rnbase_util_TYPO3::isTYPO62OrHigher()) {
+	$TCA['tx_t3sponsors_companies'] = require t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_companies.php';
+}
+
+// $TCA['tx_t3sponsors_companies'] = array (
+// 	'ctrl' => array (
+// 		'title'     => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies',
+// 		'label' => 'name1',
+// 		'tstamp'    => 'tstamp',
+// 		'crdate'    => 'crdate',
+// 		'cruser_id' => 'cruser_id',
+// 		'languageField'            => 'sys_language_uid',
+// 		'transOrigPointerField'    => 'l18n_parent',
+// 		'transOrigDiffSourceField' => 'l18n_diffsource',
+// 		'dividers2tabs' => TRUE,
+// 		'default_sortby' => 'ORDER BY name1 asc',
+// 		'delete' => 'deleted',
+// 		'enablecolumns' => array (
+// 			'disabled' => 'hidden',
+// 		),
+// 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Company.php',
+// 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
+// 	),
+// 	'feInterface' => array (
+// 		'fe_admin_fieldList' => 'name1,name2,description,comment',
+// 	)
+// );
 
 $TCA['tx_t3sponsors_categories'] = array (
 	'ctrl' => array (
@@ -47,7 +55,6 @@ $TCA['tx_t3sponsors_categories'] = array (
 	)
 );
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 
 ////////////////////////////////
@@ -69,8 +76,6 @@ if (TYPO3_MODE=='BE') {
 //	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_t3sponsors_util_Wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'util/class.tx_t3sponsors_util_Wizicon.php';
 }
 
-tx_rnbase::load('tx_rnbase_util_Extensions');
-tx_rnbase::load('tx_rnbase_util_TYPO3');
 
 // Add static TS-config
 tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/Base/', 'T3 Sponsors');
