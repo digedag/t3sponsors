@@ -4,12 +4,29 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 
-$TCA['tx_t3sponsors_categories'] = array (
-		'ctrl' => $TCA['tx_t3sponsors_categories']['ctrl'],
+$t3s_categories = array (
+		'ctrl' => array (
+			'title'     => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_categories',
+			'label' => 'name',
+			'tstamp'    => 'tstamp',
+			'crdate'    => 'crdate',
+			'cruser_id' => 'cruser_id',
+			'languageField'            => 'sys_language_uid',
+			'transOrigPointerField'    => 'l18n_parent',
+			'transOrigDiffSourceField' => 'l18n_diffsource',
+			'sortby' => 'sorting',
+			'delete' => 'deleted',
+			'enablecolumns' => array (
+			),
+//			'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
+			'iconfile'          => 'EXT:t3sponsors/ext_icon.gif',
+		),
 		'interface' => array (
 				'showRecordFieldList' => 'hidden,name1,name2'
 		),
-		'feInterface' => $TCA['tx_t3sponsors_categories']['feInterface'],
+		'feInterface' => array (
+			'fe_admin_fieldList' => 'name,description',
+		),
 		'columns' => array (
 				'hidden' => array (
 						'exclude' => 1,
@@ -95,20 +112,20 @@ $TCA['tx_t3sponsors_categories'] = array (
 
 if(tx_rnbase_util_TYPO3::isTYPO60OrHigher()) {
 	tx_rnbase::load('tx_rnbase_util_TSFAL');
-	$TCA['tx_t3sponsors_categories']['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
+	$t3s_categories['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
 			'label' => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies.logo',
 			'config' => array('size' => 1, 'maxitems' => 1),
 	));
 }
 elseif(t3lib_extMgm::isLoaded('dam')) {
 	tx_rnbase::load('tx_rnbase_util_TSDAM');
-	$TCA['tx_t3sponsors_categories']['columns']['damlogo'] = tx_rnbase_util_TSDAM::getMediaTCA('logo');
-	$TCA['tx_t3sponsors_categories']['columns']['damlogo']['label'] = 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies.logo';
-	$TCA['tx_t3sponsors_categories']['columns']['damlogo']['config']['size'] = 1;
-	$TCA['tx_t3sponsors_categories']['columns']['damlogo']['config']['maxitems'] = 1;
+	$t3s_categories['columns']['damlogo'] = tx_rnbase_util_TSDAM::getMediaTCA('logo');
+	$t3s_categories['columns']['damlogo']['label'] = 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies.logo';
+	$t3s_categories['columns']['damlogo']['config']['size'] = 1;
+	$t3s_categories['columns']['damlogo']['config']['maxitems'] = 1;
 }
 else {
-	$TCA['tx_t3sponsors_categories']['columns']['logo'] = Array (
+	$t3s_categories['columns']['logo'] = Array (
 			'exclude' => 0,
 			'label' => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies.logo',
 			'config' => Array (
@@ -124,3 +141,5 @@ else {
 			)
 	);
 }
+
+return $t3s_categories;

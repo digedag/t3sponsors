@@ -6,54 +6,10 @@ tx_rnbase::load('tx_rnbase_util_TYPO3');
 tx_rnbase::load('tx_rnbase_util_Extensions');
 
 if(!tx_rnbase_util_TYPO3::isTYPO62OrHigher()) {
+	// TCA registration for 4.5
 	$TCA['tx_t3sponsors_companies'] = require t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_companies.php';
+	$TCA['tx_t3sponsors_categories'] = require t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_categories.php';
 }
-
-// $TCA['tx_t3sponsors_companies'] = array (
-// 	'ctrl' => array (
-// 		'title'     => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_companies',
-// 		'label' => 'name1',
-// 		'tstamp'    => 'tstamp',
-// 		'crdate'    => 'crdate',
-// 		'cruser_id' => 'cruser_id',
-// 		'languageField'            => 'sys_language_uid',
-// 		'transOrigPointerField'    => 'l18n_parent',
-// 		'transOrigDiffSourceField' => 'l18n_diffsource',
-// 		'dividers2tabs' => TRUE,
-// 		'default_sortby' => 'ORDER BY name1 asc',
-// 		'delete' => 'deleted',
-// 		'enablecolumns' => array (
-// 			'disabled' => 'hidden',
-// 		),
-// 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Company.php',
-// 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
-// 	),
-// 	'feInterface' => array (
-// 		'fe_admin_fieldList' => 'name1,name2,description,comment',
-// 	)
-// );
-
-$TCA['tx_t3sponsors_categories'] = array (
-	'ctrl' => array (
-		'title'     => 'LLL:EXT:t3sponsors/locallang_db.xml:tx_t3sponsors_categories',
-		'label' => 'name',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'languageField'            => 'sys_language_uid',
-		'transOrigPointerField'    => 'l18n_parent',
-		'transOrigDiffSourceField' => 'l18n_diffsource',
-		'sortby' => 'sorting',
-		'delete' => 'deleted',
-		'enablecolumns' => array (
-		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
-	),
-	'feInterface' => array (
-		'fe_admin_fieldList' => 'name,description',
-	)
-);
 
 
 
