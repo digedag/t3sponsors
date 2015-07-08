@@ -2,7 +2,7 @@
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
 require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-
+tx_rnbase::load('tx_rnbase_util_Extensions');
 
 $t3s_categories = array (
 		'ctrl' => array (
@@ -19,7 +19,7 @@ $t3s_categories = array (
 			'enablecolumns' => array (
 			),
 //			'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
-			'iconfile'          => 'EXT:t3sponsors/ext_icon.gif',
+			'iconfile'          => tx_rnbase_util_Extensions::extRelPath('t3sponsors').'ext_icon.gif',
 		),
 		'interface' => array (
 				'showRecordFieldList' => 'hidden,name1,name2'
