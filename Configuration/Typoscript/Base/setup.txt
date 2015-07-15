@@ -35,6 +35,27 @@ lib.t3sponsors.category {
     file.maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
   }
 }
+
+lib.t3sponsors.trade {
+  name.wrap = <b>|</b>
+  t3logo =< tt_content.image.20
+  t3logo {
+    imgList.field = logo
+    imgPath = uploads/tx_t3sponsors/
+    maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+  logo = IMAGE
+  logo.file.import.cObject = USER
+  logo.file.import.cObject {
+    userFunc=tx_dam_tsfe->fetchFileList
+    refField=logo
+    refTable=tx_t3sponsors_trades
+    file.maxH = {$plugin.tx_t3sponsors.logoSmallMaxH}
+    file.maxW = {$plugin.tx_t3sponsors.logoSmallMaxW}
+  }
+}
+
 lib.t3sponsors.sponsor {
   links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
   pagebrowser.limit = 20

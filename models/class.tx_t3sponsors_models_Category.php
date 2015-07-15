@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007-2012 Rene Nitzsche (rene@system25.de)
+*  (c) 2007-2015 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,16 +32,14 @@ tx_rnbase::load('tx_rnbase_model_base');
 
 
 /**
- * Model für eine Arbeitsgruppe.
+ * Model für eine Kategorie.
  */
-class tx_t3sponsors_models_category extends tx_rnbase_model_base {
-  
-  function getTableName(){return 'tx_t3sponsors_categories';}
+class tx_t3sponsors_models_Category extends tx_rnbase_model_base {
+
+	function getTableName(){return 'tx_t3sponsors_categories';}
 
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_category.php']) {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_category.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Category.php']) {
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Category.php']);
 }
-
-?>

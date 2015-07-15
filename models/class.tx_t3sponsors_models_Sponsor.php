@@ -22,33 +22,30 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-tx_rnbase::load('tx_rnbase_util_DB');
+// Die Datenbank-Klasse
+//require_once(t3lib_extMgm::extPath('rn_base') . 'util/class.tx_rnbase_util_DB.php'); // Prüfen
+
+tx_rnbase::load('tx_rnbase_model_base');
 
 
 /**
- * Service for accessing team information
- *
- * @author Rene Nitzsche
+ * Model für einen Sponsor.
  */
-class tx_t3sponsors_sv1_Sponsor extends t3lib_svbase {
+class tx_t3sponsors_models_Sponsor extends tx_rnbase_model_base {
+
+	function getTableName(){return 'tx_t3sponsors_companies';}
 
 	/**
-	 * Search database for teams
+	 * Whether or not the single view is enabled
 	 *
-	 * @param array $fields
-	 * @param array $options
-	 * @return array of tx_t3sponsors_models_Sponsor
+	 * @return boolean
 	 */
-	function search($fields, $options) {
-		tx_rnbase::load('tx_rnbase_util_SearchBase');
-		$searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Sponsor');
-		return $searcher->search($fields, $options);
+	public function hasReport() {
+		return intval($this->record['hasreport']) > 0;
 	}
-
 }
 
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Sponsor.php']) {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Sponsor.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Sponsor.php']) {
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Sponsor.php']);
 }
+

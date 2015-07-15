@@ -38,9 +38,9 @@ class tx_t3sponsors_sv1_Category extends t3lib_svbase {
 	 *
 	 * @param array $fields
 	 * @param array $options
-	 * @return array[tx_t3sponsors_models_category]
+	 * @return array[tx_t3sponsors_models_Category]
 	 */
-	function search($fields, $options) {
+	public function search($fields, $options) {
 		tx_rnbase::load('tx_rnbase_util_SearchBase');
 		$searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Category');
 		return $searcher->search($fields, $options);

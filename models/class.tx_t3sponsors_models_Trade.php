@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007-2012 Rene Nitzsche (rene@system25.de)
+*  (c) 2015 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,33 +22,22 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 // Die Datenbank-Klasse
 //require_once(t3lib_extMgm::extPath('rn_base') . 'util/class.tx_rnbase_util_DB.php'); // Prüfen
 
+tx_rnbase::load('tx_rnbase_util_DB');
 tx_rnbase::load('tx_rnbase_model_base');
 
 
 /**
- * Model für eine Arbeitsgruppe.
  */
-class tx_t3sponsors_models_sponsor extends tx_rnbase_model_base {
-  
-  function getTableName(){return 'tx_t3sponsors_companies';}
+class tx_t3sponsors_models_Trade extends tx_rnbase_model_base {
 
-  /**
-   * Whether or not the single view is enabled
-   *
-   * @return boolean
-   */
-  function hasReport() {
-  	return intval($this->record['hasreport']) > 0;
-  }
+  function getTableName(){return 'tx_t3sponsors_trades';}
+
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_sponsor.php']) {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_sponsor.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Trade.php']) {
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/models/class.tx_t3sponsors_models_Trade.php']);
 }
-
-?>

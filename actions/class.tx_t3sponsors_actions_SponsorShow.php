@@ -31,12 +31,12 @@ tx_rnbase::load('tx_rnbase_action_BaseIOC');
 
 /**
  * Single view for sponsors
- * 
+ *
  */
 class tx_t3sponsors_actions_SponsorShow extends tx_rnbase_action_BaseIOC {
-	
+
   /**
-   * 
+   *
    *
    * @param array_object $parameters
    * @param tx_rnbase_configurations $configurations
@@ -57,7 +57,7 @@ class tx_t3sponsors_actions_SponsorShow extends tx_rnbase_action_BaseIOC {
 		if(!intval($itemId)) {
 			return 'Sorry, no item-id found.';
 		}
-		$item = tx_rnbase::makeInstance('tx_t3sponsors_models_sponsor', $itemId);
+		$item = tx_rnbase::makeInstance('tx_t3sponsors_models_Sponsor', $itemId);
 
 		$viewData->offsetSet('sponsor', $item);
 		return null;

@@ -33,7 +33,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 
 	/**
 	 * @param string $template das HTML-Template
-	 * @param tx_t3sponsors_models_sponsor $item the sponsor
+	 * @param tx_t3sponsors_models_Sponsor $item the sponsor
 	 * @param tx_rnbase_util_FormatUtil $formatter der zu verwendente Formatter
 	 * @param string $confId Pfad der TS-Config, z.B. 'listView.club.'
 	 * @param string $marker name of marker
@@ -43,7 +43,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	public function parseTemplate($template, &$item, &$formatter, $confId, $marker = 'SPONSOR') {
 		if(!is_object($item)) {
 			// Ist kein Objekt vorhanden wird ein leeres Objekt verwendet.
-			$item = self::getEmptyInstance('tx_t3sponsors_models_sponsor');
+			$item = self::getEmptyInstance('tx_t3sponsors_models_Sponsor');
 		}
 
 		// Es wird das MarkerArray mit den Daten des Teams gefüllt.
@@ -69,7 +69,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	/**
 	 *
 	 * @param string $template
-	 * @param tx_t3sponsors_models_sponsor $item
+	 * @param tx_t3sponsors_models_Sponsor $item
 	 * @param tx_rnbase_util_FormatUtil $formatter
 	 * @param string $confId
 	 * @param string $markerPrefix
@@ -91,7 +91,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	/**
 	 * Prepare links
 	 *
-	 * @param tx_t3sponsors_models_sponsor $item
+	 * @param tx_t3sponsors_models_Sponsor $item
 	 * @param string $marker
 	 * @param array $markerArray
 	 * @param array $wrappedSubpartArray

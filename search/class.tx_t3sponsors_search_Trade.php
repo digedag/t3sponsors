@@ -2,7 +2,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2009-2012 Rene Nitzsche
+ *  (c) 2015 Rene Nitzsche
  *  Contact: rene@system25.de
  *  All rights reserved
  *
@@ -21,47 +21,45 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 tx_rnbase::load('tx_rnbase_util_SearchBase');
 
 
 /**
- * Class to search categories from database
+ * Class to search trades from database
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_search_Category extends tx_rnbase_util_SearchBase {
+class tx_t3sponsors_search_Trade extends tx_rnbase_util_SearchBase {
 
 	protected function getTableMappings() {
+		$tableMapping = array();
 		$tableMapping['SPONSOR'] = 'tx_t3sponsors_companies';
-		$tableMapping['CATMM'] = 'tx_t3sponsors_categories_mm';
-		$tableMapping['CAT'] = 'tx_t3sponsors_categories';
+		$tableMapping['TRADEMM'] = 'tx_t3sponsors_trades_mm';
+		$tableMapping['TRADE'] = 'tx_t3sponsors_trades';
 		return $tableMapping;
 	}
 
   protected function getBaseTable() {
-  	return 'tx_t3sponsors_categories';
+  	return 'tx_t3sponsors_trades';
   }
   function getWrapperClass() {
-  	return 'tx_t3sponsors_models_Category';
+  	return 'tx_t3sponsors_models_Trade';
   }
 
   protected function getJoins($tableAliases) {
   	$join = '';
-    if(isset($tableAliases['CATMM']) || isset($tableAliases['SPONSOR'])) {
-    	$join .= ' JOIN tx_t3sponsors_categories_mm ON tx_t3sponsors_categories.uid = tx_t3sponsors_categories_mm.uid_local';
+    if(isset($tableAliases['TRADEMM']) || isset($tableAliases['SPONSOR'])) {
+    	$join .= ' JOIN tx_t3sponsors_trades_mm ON tx_t3sponsors_trades.uid = tx_t3sponsors_trades_mm.uid_local';
     }
     if(isset($tableAliases['SPONSOR'])) {
-    	$join .= ' JOIN tx_t3sponsors_companies ON tx_t3sponsors_companies.uid = tx_t3sponsors_categories_mm.uid_foreign';
+    	$join .= ' JOIN tx_t3sponsors_companies ON tx_t3sponsors_companies.uid = tx_t3sponsors_trades_mm.uid_foreign';
     }
     return $join;
   }
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/search/class.tx_t3sponsors_search_Category.php']) {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/search/class.tx_t3sponsors_search_Category.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/search/class.tx_t3sponsors_search_Trade.php']) {
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/search/class.tx_t3sponsors_search_Trade.php']);
 }
-
-?>

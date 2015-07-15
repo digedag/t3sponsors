@@ -16,6 +16,7 @@
 			<label index="plugin.t3sponsors.flexform.action.SponsorList">List of sponsors</label>
 			<label index="plugin.t3sponsors.flexform.action.SponsorShow">Sponsor single view</label>
 			<label index="plugin.t3sponsors.flexform.template">HTML-Template</label>
+			<label index="plugin.t3sponsors.flexform.enableCharbrowser">Enable Character Browser</label>
 
 			<label index="plugin.t3sponsors.flexform.categories">Categories</label>
 			<label index="plugin.t3sponsors.flexform.trades">Trades</label>

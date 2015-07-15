@@ -24,7 +24,7 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['tx_t3sponsors']='pi_fle
 
 // Add flexform and plugin
 tx_rnbase_util_Extensions::addPiFlexFormValue('tx_t3sponsors','FILE:EXT:'.$_EXTKEY.'/flexform_main.xml');
-tx_rnbase_util_Extensions::addPlugin(Array('LLL:EXT:'.$_EXTKEY.'/locallang_db.php:plugin.t3sponsors.label','tx_t3sponsors'));
+tx_rnbase_util_Extensions::addPlugin(Array('LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/locallang_db.php:plugin.t3sponsors.label','tx_t3sponsors'));
 # Add plugin wizard
 if (TYPO3_MODE=='BE') {
 	tx_rnbase::load('tx_rnbase_util_Wizicon');

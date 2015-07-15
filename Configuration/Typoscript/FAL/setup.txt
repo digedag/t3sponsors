@@ -29,3 +29,10 @@ lib.t3sponsors.category.logo {
 		refTable=tx_t3sponsors_categories
 	}
 }
+lib.t3sponsors.trade.logo >
+lib.t3sponsors.trade.logo < lib.t3sponsors.sponsor.logo
+lib.t3sponsors.trade.logo {
+	file.import.cObject {
+		refTable=tx_t3sponsors_trades
+	}
+}

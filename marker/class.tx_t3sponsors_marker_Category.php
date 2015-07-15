@@ -33,7 +33,7 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 
 	/**
 	 * @param string $template das HTML-Template
-	 * @param tx_t3sponsors_models_category $item category
+	 * @param tx_t3sponsors_models_Category $item category
 	 * @param tx_rnbase_util_FormatUtil $formatter der zu verwendente Formatter
 	 * @param string $confId Pfad der TS-Config des Vereins, z.B. 'listView.club.'
 	 * @param array $links Array mit Link-Instanzen, wenn Verlinkung möglich sein soll. Zielseite muss vorbereitet sein.
@@ -44,7 +44,7 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 	public function parseTemplate($template, &$item, &$formatter, $confId, $marker = 'CATEGORY') {
 		if(!is_object($item)) {
 			// On default use an empty instance.
-			$item = self::getEmptyInstance('tx_t3sponsors_models_category');
+			$item = self::getEmptyInstance('tx_t3sponsors_models_Category');
 		}
 
 		// Es wird das MarkerArray gefüllt.
@@ -60,7 +60,7 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 	/**
 	 *
 	 * @param string $template
-	 * @param tx_t3sponsors_models_category $item
+	 * @param tx_t3sponsors_models_Category $item
 	 * @param tx_rnbase_util_FormatUtil $formatter
 	 * @param string $confId
 	 * @param string $markerPrefix
