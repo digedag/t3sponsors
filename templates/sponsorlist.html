@@ -17,11 +17,13 @@ For usage with DAM replace the following markers:
 
 ###SPONSORLIST###
 
+###SEARCHFORM###
 
 ###SPONSORS###
-<table><tr class="t3sponsors-row###SPONSOR_ROLL###"><th>&nbsp;</th><th>###LABEL_sponsor###</th><th>###LABEL_category###</th></tr>
+<table class="table table-striped">
+<tr><th>&nbsp;</th><th>###LABEL_sponsor###</th><th>###LABEL_category###</th></tr>
 ###SPONSOR###
-<tr><td>Logo:###SPONSOR_LOGO###</td><td>###SPONSOR_SHOWLINK######SPONSOR_NAME1######SPONSOR_SHOWLINK###</td>
+<tr class="t3sponsors-row###SPONSOR_ROLL###"><td>Logo:###SPONSOR_LOGO###</td><td>###SPONSOR_SHOWLINK######SPONSOR_NAME1######SPONSOR_SHOWLINK###</td>
 
 <td>
 ###SPONSOR_CATEGORYS###
@@ -77,6 +79,32 @@ For usage with DAM replace the following markers:
 
 
 ###SPONSORLIST###
+
+
+
+###SEARCH_FORM###
+
+<form action="###ACTION_URI###" method="GET">
+<input type="hidden" name="id" value="###ACTION_PID###" />
+<div class="form-group">
+    <label for="t3sponsors_search">Suche</label>
+    <input type="text" class="form-control" id="t3sponsors_search" name="t3sponsors[search]" placeholder="Suchbegriff">
+</div>
+
+###TRADES###
+<div class="form-group">
+  <label>Branche</label>
+
+###TRADE###
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox###TRADE_LINE###" name="t3sponsors[search_trade][]" value="###TRADE_UID###"> ###TRADE_NAME###
+  </label>
+###TRADE###
+</div>
+###TRADES###
+<button type="submit" class="btn btn-primary">Suche</button>
+</form>
+###SEARCH_FORM###
 
 
 </body>

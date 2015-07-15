@@ -110,12 +110,16 @@ lib.t3sponsors.sponsor {
 plugin.tx_t3sponsors {
   sponsorlistTemplate = {$plugin.tx_t3sponsors.sponsorlistTemplate}
 
-  sponsorlist {
-    options.orderby.SPONSOR.NAME1 = asc
-#    options.orderby.RAND = 1
-#    options.limit = 1
-#    options.debug = 1
-#    categories = 1,2
+  sponsorlist.sponsor {
+    filter {
+      class = tx_t3sponsors_filter_Form
+      template = EXT:t3sponsors/templates/sponsorlist.html
+      subpart = ###SEARCH_FORM###
+      options.orderby.SPONSOR.NAME1 = asc
+#      options.orderby.RAND = 1
+#      options.limit = 1
+#      options.debug = 1
+    }
     sponsor =< lib.t3sponsors.sponsor
   }
   sponsorshow {

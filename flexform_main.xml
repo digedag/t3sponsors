@@ -45,7 +45,7 @@
 
         <type>array</type>
         <el>
-					<sponsorlist.filter.fields.CATMM.UID_LOCAL.OP_IN_INT>
+					<sponsorlist.sponsor.filter.fields.CATMM.UID_LOCAL.OP_IN_INT>
             <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.categories</label>
@@ -58,8 +58,8 @@
                 <size>10</size>
               </config>
             </TCEforms>
-					</sponsorlist.filter.fields.CATMM.UID_LOCAL.OP_IN_INT>
-					<sponsorlist.filter.fields.TRADEMM.UID_LOCAL.OP_IN_INT>
+					</sponsorlist.sponsor.filter.fields.CATMM.UID_LOCAL.OP_IN_INT>
+					<sponsorlist.sponsor.filter.fields.TRADEMM.UID_LOCAL.OP_IN_INT>
             <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.trades</label>
@@ -72,8 +72,8 @@
                 <size>10</size>
               </config>
             </TCEforms>
-					</sponsorlist.filter.fields.TRADEMM.UID_LOCAL.OP_IN_INT>
-          <sponsorlist.filter.fields.SPONSOR.UID.OP_IN_INT>
+					</sponsorlist.sponsor.filter.fields.TRADEMM.UID_LOCAL.OP_IN_INT>
+          <sponsorlist.sponsor.filter.fields.SPONSOR.UID.OP_IN_INT>
             <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors</label>
@@ -85,8 +85,8 @@
                 <size>10</size>
               </config>
             </TCEforms>
-          </sponsorlist.filter.fields.SPONSOR.UID.OP_IN_INT>
-          <sponsorlist.filter.options.pidlist>
+          </sponsorlist.sponsor.filter.fields.SPONSOR.UID.OP_IN_INT>
+          <sponsorlist.sponsor.filter.options.pidlist>
             <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:lang/locallang_general.php:LGL.startingpoint</label>
@@ -100,8 +100,8 @@
                 <show_thumbs>1</show_thumbs>
               </config>
             </TCEforms>
-          </sponsorlist.filter.options.pidlist>
-          <sponsorlist.filter.options.recursive>
+          </sponsorlist.sponsor.filter.options.pidlist>
+          <sponsorlist.sponsor.filter.options.recursive>
             <TCEforms>
               <label>LLL:EXT:lang/locallang_general.php:LGL.recursive</label>
               <config>
@@ -137,17 +137,17 @@
                  <size>1</size>
               </config>
             </TCEforms>
-          </sponsorlist.filter.options.recursive>
-          <sponsorlist.filter.options.orderby.RAND>
+          </sponsorlist.sponsor.filter.options.recursive>
+          <sponsorlist.sponsor.filter.options.orderby.RAND>
             <TCEforms>
               <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.rand</label>
               <config>
                 <type>check</type>
               </config>
             </TCEforms>
-          </sponsorlist.filter.options.orderby.RAND>
+          </sponsorlist.sponsor.filter.options.orderby.RAND>
 
-          <sponsorlist.filter.options.limit>
+          <sponsorlist.sponsor.filter.options.limit>
             <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.limit</label>
@@ -160,7 +160,7 @@
                 <eval>int</eval>
               </config>
             </TCEforms>
-          </sponsorlist.filter.options.limit>
+          </sponsorlist.sponsor.filter.options.limit>
 
 					<sponsorlist.sponsor.charbrowser>
 						<TCEforms>
@@ -172,7 +172,7 @@
 						</TCEforms>
 					</sponsorlist.sponsor.charbrowser>
 
-					<sponsorlist.filter.options.debug>
+					<sponsorlist.sponsor.filter.options.debug>
 						<TCEforms>
 							<exclude>1</exclude>
 							<label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:common_debugSQL</label>
@@ -180,7 +180,7 @@
 							  <type>check</type>
 							</config>
 						</TCEforms>
-					</sponsorlist.filter.options.debug>
+					</sponsorlist.sponsor.filter.options.debug>
           <sponsorlist.sponsor.links.show.pid>
             <TCEforms>
               <exclude>1</exclude>

@@ -43,10 +43,10 @@ class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC {
 	 * @param array_object $viewData
 	 * @return string error msg or null
 	 */
-	function handleRequest(&$parameters,&$configurations, &$viewdata){
+	protected function handleRequest(&$parameters,&$configurations, &$viewdata){
 		$srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
 
-		$filter = tx_rnbase_filter_BaseFilter::createFilter($parameters, $configurations, $viewdata, $this->getConfId(). 'filter.');
+		$filter = tx_rnbase_filter_BaseFilter::createFilter($parameters, $configurations, $viewdata, $this->getConfId(). 'sponsor.filter.');
 		$fields = array();
 		$options = array();
 		$filter->init($fields, $options);

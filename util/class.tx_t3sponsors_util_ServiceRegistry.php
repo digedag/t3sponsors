@@ -31,20 +31,27 @@ tx_rnbase::load('tx_rnbase_util_Misc');
  * Access a service instance
  */
 class tx_t3sponsors_util_ServiceRegistry {
-	
+
 	/**
 	 * Liefert den Profile-Service
 	 * @return tx_t3sponsors_sv1_Sponsor
 	 */
-	static function getSponsorService() {
+	public static function getSponsorService() {
 		return tx_rnbase_util_Misc::getService('t3sponsors', 'sponsor');
 	}
 	/**
-	 * Liefert den Profile-Service
-	 * @return tx_t3sponsors_sv1_Sponsor
+	 * Liefert den Category-Service
+	 * @return tx_t3sponsors_sv1_Category
 	 */
-	static function getCategoryService() {
+	public static function getCategoryService() {
 		return tx_rnbase_util_Misc::getService('t3sponsors', 'category');
+	}
+	/**
+	 * Liefert den Trade-Service
+	 * @return tx_t3sponsors_sv1_Trade
+	 */
+	public static function getTradeService() {
+		return tx_rnbase_util_Misc::getService('t3sponsors', 'trade');
 	}
 }
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/util/class.tx_t3sponsors_util_ServiceRegistry.php'])	{

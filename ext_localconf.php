@@ -6,22 +6,31 @@ tx_rnbase::load('tx_t3sponsors_util_ServiceRegistry');
 tx_rnbase::load('tx_rnbase_util_SearchBase');
 
 t3lib_extMgm::addService($_EXTKEY,  't3sponsors' /* sv type */,  'tx_t3sponsors_sv1_Sponsor' /* sv key */,
-array(
-'title' => 'Sponsoren', 'description' => 'Handles sponsors', 'subtype' => 'sponsor',
-'available' => TRUE, 'priority' => 50, 'quality' => 50,
-'os' => '', 'exec' => '',
-'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_t3sponsors_sv1_Sponsor.php',
-'className' => 'tx_t3sponsors_sv1_Sponsor',
-)
+	array(
+		'title' => 'Sponsoren', 'description' => 'Handles sponsors', 'subtype' => 'sponsor',
+		'available' => TRUE, 'priority' => 50, 'quality' => 50,
+		'os' => '', 'exec' => '',
+		'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_t3sponsors_sv1_Sponsor.php',
+		'className' => 'tx_t3sponsors_sv1_Sponsor',
+	)
 );
 
 t3lib_extMgm::addService($_EXTKEY,  't3sponsors' /* sv type */,  'tx_t3sponsors_sv1_Category' /* sv key */,
-array(
-'title' => 'Sponsoren', 'description' => 'Handles sponsors', 'subtype' => 'category',
-'available' => TRUE, 'priority' => 50, 'quality' => 50,
-'os' => '', 'exec' => '',
-'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_t3sponsors_sv1_Category.php',
-'className' => 'tx_t3sponsors_sv1_Category',
-)
+	array(
+		'title' => 'Sponsoren', 'description' => 'Handles sponsors categories', 'subtype' => 'category',
+		'available' => TRUE, 'priority' => 50, 'quality' => 50,
+		'os' => '', 'exec' => '',
+		'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_t3sponsors_sv1_Category.php',
+		'className' => 'tx_t3sponsors_sv1_Category',
+	)
 );
 
+t3lib_extMgm::addService($_EXTKEY,  't3sponsors' /* sv type */,  'tx_t3sponsors_sv1_Trade' /* sv key */,
+	array(
+		'title' => 'Sponsoring-Trades', 'description' => 'Handles trades', 'subtype' => 'trade',
+		'available' => TRUE, 'priority' => 50, 'quality' => 50,
+		'os' => '', 'exec' => '',
+		'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_t3sponsors_sv1_Trade.php',
+		'className' => 'tx_t3sponsors_sv1_Trade',
+	)
+);
