@@ -4,7 +4,7 @@
 		<description>language labels for t3sponsors frontend strings</description>
 		<type>database</type>
 		<csh_table></csh_table>
-		<fileId>EXT:t3sponsors/locallang.xml</fileId>
+		<fileId>EXT:t3sponsors/Resources/Private/Language/locallang.xml</fileId>
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">

@@ -5,7 +5,7 @@
     <sDEF>
       <ROOT>
         <TCEforms>
-          <sheetTitle>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.tab.common</sheetTitle>
+          <sheetTitle>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.tab.common</sheetTitle>
         </TCEforms>
 
         <type>array</type>
@@ -13,16 +13,16 @@
           <action>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.action</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.action</label>
               <config>
                 <type>select</type>
                 <items type="array">
                   <numIndex index="10" type="array">
-                    <numIndex index="0">LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorList</numIndex>
+                    <numIndex index="0">LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorList</numIndex>
                     <numIndex index="1">tx_t3sponsors_actions_SponsorList</numIndex>
                   </numIndex>
                   <numIndex index="20" type="array">
-                    <numIndex index="0">LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorShow</numIndex>
+                    <numIndex index="0">LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorShow</numIndex>
                     <numIndex index="1">tx_t3sponsors_actions_SponsorShow</numIndex>
                   </numIndex>
 
@@ -40,7 +40,7 @@
     <s_sponsorlist>
       <ROOT>
         <TCEforms>
-          <sheetTitle>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorList</sheetTitle>
+          <sheetTitle>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.action.SponsorList</sheetTitle>
         </TCEforms>
 
         <type>array</type>
@@ -48,7 +48,7 @@
 					<sponsorlist.fields.CATMM.UID_LOCAL.OP_IN_INT>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.categories</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.categories</label>
               <config>
                 <type>select</type>
                 <foreign_table>tx_t3sponsors_categories</foreign_table>
@@ -62,7 +62,7 @@
           <sponsorlist.fields.SPONSOR.UID.OP_IN_INT>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.sponsors</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors</label>
               <config>
                 <type>group</type>
                 <internal_type>db</internal_type>
@@ -126,7 +126,7 @@
           </sponsorlist.options.recursive>
           <sponsorlist.options.orderby.RAND>
             <TCEforms>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.rand</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.rand</label>
               <config>
                 <type>check</type>
               </config>
@@ -136,7 +136,7 @@
           <sponsorlist.options.limit>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.limit</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.limit</label>
               <config>
                 <type>input</type>
                 <checkbox>0</checkbox>
@@ -150,7 +150,7 @@
 					<sponsorlist.options.debug>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:t3sponsors/locallang_db.xml:common_debugSQL</label>
+							<label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:common_debugSQL</label>
 							<config>
 							  <type>check</type>
 							</config>
@@ -159,7 +159,7 @@
           <sponsorlist.sponsor.links.show.pid>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.singlepid</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.sponsors.singlepid</label>
               <config>
                 <type>group</type>
                 <internal_type>db</internal_type>
@@ -172,7 +172,7 @@
           <sponsorlistTemplate>
             <TCEforms>
               <exclude>1</exclude>
-              <label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.template</label>
+              <label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.template</label>
               <config>
                 <type>input</type>
                 <size>24</size>
@@ -201,14 +201,14 @@
 		<s_tssetup>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.tab.tssetup</sheetTitle>
+					<sheetTitle>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.tab.tssetup</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<flexformTS>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:t3sponsors/locallang_db.xml:plugin.t3sponsors.flexform.tssetup</label>
+							<label>LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:plugin.t3sponsors.flexform.tssetup</label>
 							<config>
 								<type>text</type>
 								<cols>80</cols>

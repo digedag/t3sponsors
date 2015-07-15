@@ -18,6 +18,7 @@
 			<label index="plugin.t3sponsors.flexform.template">HTML-Template</label>
 
 			<label index="plugin.t3sponsors.flexform.categories">Categories</label>
+			<label index="plugin.t3sponsors.flexform.trades">Trades</label>
 			<label index="plugin.t3sponsors.flexform.sponsors">Sponsors</label>
 			<label index="plugin.t3sponsors.flexform.sponsors.rand">Randomize sorting</label>
 			<label index="plugin.t3sponsors.flexform.sponsors.limit">Limit list size</label>
@@ -46,12 +47,17 @@
 			<label index="tx_t3sponsors_categories.name">Name</label>
 			<label index="tx_t3sponsors_categories.description">Description</label>
 
+			<label index="tx_t3sponsors_trades">Kind of industry</label>
+			<label index="tx_t3sponsors_trades.name">Name</label>
+			<label index="tx_t3sponsors_trades.description">Description</label>
+
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="plugin.t3sponsors.flexform.action.SponsorList">Liste von Sponsoren</label>
 			<label index="plugin.t3sponsors.flexform.action.SponsorShow">Sponsor Detailansicht</label>
 
 			<label index="plugin.t3sponsors.flexform.categories">Kategorien</label>
+			<label index="plugin.t3sponsors.flexform.trades">Branchen</label>
 			<label index="plugin.t3sponsors.flexform.sponsors">Sponsoren</label>
 			<label index="plugin.t3sponsors.flexform.sponsors.rand">Zufällige Sortierung</label>
 			<label index="plugin.t3sponsors.flexform.sponsors.limit">Maximale Anzahl</label>
@@ -79,6 +85,11 @@
 			<label index="tx_t3sponsors_categories.name">Name</label>
 			<label index="tx_t3sponsors_categories.description">Beschreibung</label>
 			<label index="tx_t3sponsors_categories.sponsors">Sponsoren</label>
+
+			<label index="tx_t3sponsors_trades">Branche</label>
+			<label index="tx_t3sponsors_trades.name">Name</label>
+			<label index="tx_t3sponsors_trades.description">Description</label>
+
 		</languageKey>
 	</data>
 </T3locallang>

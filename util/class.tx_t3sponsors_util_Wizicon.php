@@ -40,34 +40,8 @@ class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon {
 		return $plugins;
 	}
 	protected function getLLFile() {
-		return t3lib_extMgm::extPath('t3sponsors').'locallang_db.xml';
+		return t3lib_extMgm::extPath('t3sponsors').'Resources/Private/Language/locallang_db.xml';
 	}
-
-	/**
-	 * Adds the plugin wizard icon
-	 *
-	 * @param array Input array with wizard items for plugins
-	 * @return array Modified input array, having the items for plugin added.
-	 */
-// 	function proc($wizardItems)	{
-// 		global $LANG;
-
-// 		$LL = $this->includeLocalLang();
-
-// 		$wizardItems['plugins_tx_t3sponsors'] = array(
-// 			'icon'=>t3lib_extMgm::extRelPath('t3sponsors').'/ext_icon.gif',
-// 			'title'=>$LANG->getLLL('plugin.t3sponsors.label',$LL),
-// 			'description'=>$LANG->getLLL('plugin.t3sponsors.description',$LL),
-// 			'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=tx_t3sponsors'
-// 		);
-
-// 		return $wizardItems;
-// 	}
-// 	function includeLocalLang()	{
-// 		$llFile = t3lib_extMgm::extPath('t3sponsors').'locallang_db.xml';
-// 		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
-// 		return $LOCAL_LANG;
-// 	}
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/util/class.tx_t3sponsors_util_Wizicon.php'])	{
