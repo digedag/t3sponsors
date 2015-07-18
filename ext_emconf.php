@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
-	'state' => 'beta',
+	'state' => 'stable',
 	'uploadfolder' => 1,
 	'createDirs' => 'uploads/tx_t3sponsors',
 	'modify_tables' => '',
@@ -34,9 +34,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '4.3.0-6.2.99',
-			'php' => '5.3.0-0.0.0',
-			'rn_base' => '0.14.1-0.0.0',
+			'typo3' => '4.5.0-6.2.99',
+			'php' => '5.3.7-0.0.0',
+			'rn_base' => '0.15.0-0.0.0',
 		),
 		'conflicts' => array(
 		),
