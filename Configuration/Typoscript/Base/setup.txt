@@ -11,7 +11,7 @@ plugin.tx_t3sponsors.userFunc       = tx_rnbase_controller->main
 plugin.tx_t3sponsors.defaultAction  = tx_t3sponsors_actions_SponsorList
 plugin.tx_t3sponsors.qualifier      = t3sponsors
 plugin.tx_t3sponsors.templatePath   = EXT:t3sponsors/templates
-plugin.tx_t3sponsors.locallangFilename = EXT:t3sponsors/resources/Private/Language/locallang.xml
+plugin.tx_t3sponsors.locallangFilename = EXT:t3sponsors/Resources/Private/Language/locallang.xml
 
 
 tt_content.list.20.tx_t3sponsors    =< plugin.tx_t3sponsors
@@ -57,6 +57,10 @@ lib.t3sponsors.trade {
 }
 
 lib.t3sponsors.sponsor {
+  _map {
+    template = EXT:t3sponsors/templates/sponsorlist.html
+    subpart = ###SPONSOR_MAP_MARKER###
+  }
   links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
   pagebrowser.limit = 20
   roll.value = 1
