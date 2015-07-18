@@ -59,7 +59,7 @@ lib.t3sponsors.trade {
 lib.t3sponsors.sponsor {
   _map {
     template = EXT:t3sponsors/templates/sponsorlist.html
-    subpart = ###SPONSOR_MAP_MARKER###
+    subpart = ###SPONSOR_MAP_BUBBLE###
   }
   links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
   pagebrowser.limit = 20
@@ -114,6 +114,7 @@ lib.t3sponsors.sponsor {
 plugin.tx_t3sponsors {
   sponsorlistTemplate = {$plugin.tx_t3sponsors.sponsorlistTemplate}
 
+  sponsorlist.sponsor =< lib.t3sponsors.sponsor
   sponsorlist.sponsor {
     filter {
       class = tx_t3sponsors_filter_Form
@@ -139,7 +140,6 @@ plugin.tx_t3sponsors {
 #      options.limit = 1
 #      options.debug = 1
     }
-    sponsor =< lib.t3sponsors.sponsor
   }
   sponsorshow {
     sponsor =< lib.t3sponsors.sponsor
