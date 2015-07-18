@@ -115,6 +115,21 @@ plugin.tx_t3sponsors {
       class = tx_t3sponsors_filter_Form
       template = EXT:t3sponsors/templates/sponsorlist.html
       subpart = ###SEARCH_FORM###
+      form.trade =< lib.t3sponsors.trade
+      form.trade {
+        selected = TEXT
+        selected.value = checked
+        selected.if.value.field = selected
+        selected.if.equals = 1
+      }
+      form.category =< lib.t3sponsors.category
+      form.category {
+        selected = TEXT
+        selected.value = checked
+        selected.if.value.field = selected
+        selected.if.equals = 1
+      }
+
       options.orderby.SPONSOR.NAME1 = asc
 #      options.orderby.RAND = 1
 #      options.limit = 1

@@ -40,30 +40,24 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
     $sponsors =& $viewData->offsetGet('sponsors');
 
 	  $listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
-    
-    $template = $listBuilder->render($sponsors, 
-    								$viewData, $template, 'tx_t3sponsors_marker_Sponsor', 
+
+    $template = $listBuilder->render($sponsors,
+    								$viewData, $template, 'tx_t3sponsors_marker_Sponsor',
     								'sponsorlist.sponsor.', 'SPONSOR', $formatter);
 
-		$params['confid'] = $confId;
-		$params['marker'] = $marker;
-		$params['sponsors'] = $sponsors;
-		tx_rnbase_util_BaseMarker::callModules($template, $markerArray, $subpartArray, $wrappedSubpartArray, $params, $formatter);
-		$out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
-		
-		return $out;
+		return $template;
   }
 
   /**
    * Subpart der im HTML-Template geladen werden soll. Dieser wird der Methode
-   * createOutput automatisch als $template übergeben. 
+   * createOutput automatisch als $template übergeben.
    *
    * @return string
    */
   function getMainSubpart() {
   	return '###SPONSORLIST###';
   }
-  
+
 
 
 }

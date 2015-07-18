@@ -26,6 +26,9 @@
  * Filterklasse mit zusätzlichem Such-Formular
  */
 class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
+	private $selectedTrades;
+	private $selectedCategories;
+	private $searchTerm;
 
 	/**
 	 * Abgeleitete Filter können diese Methode überschreiben und zusätzliche Filter setzen
@@ -38,7 +41,21 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 	 */
 	protected function initFilter(&$fields, &$options, &$parameters, &$configurations, $confId) {
 		//if($_SERVER["REMOTE_ADDR"] == '89.246.162.16')
-//		tx_rnbase_util_Debug::debug($parameters,__FILE__.':'.__LINE__); // TODO: remove me
+		$this->searchTerm = $parameters->get('search');
+		$this->selectedTrades = $parameters->get('search_trade');
+		$this->selectedCategories = $parameters->get('search_cat');
+		if(!empty($this->selectedTrades))
+			$fields['TRADEMM.UID_LOCAL'][OP_IN_INT] = implode(',', $this->selectedTrades);
+		if(!empty($this->selectedCategories))
+			$fields['CATMM.UID_LOCAL'][OP_IN_INT] = implode(',', $this->selectedCategories);
+		if(!empty($this->searchTerm)) {
+			$fields[SEARCH_FIELD_JOINED][] = array(
+					'value' => $this->searchTerm,
+					'operator' => OP_LIKE,
+					'cols' => array('SPONSOR.NAME1', 'SPONSOR.NAME2', 'SPONSOR.DESCRIPTION'),
+			);
+		}
+//		$options['debug'] =1;
 
 		return TRUE;
 	}
@@ -46,18 +63,18 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 	function parseTemplate($template, &$formatter, $confId, $marker = 'FILTER') {
 		if(!tx_rnbase_util_BaseMarker::containsMarker($template, 'SEARCHFORM'))
 			return $template;
-//if($_SERVER["REMOTE_ADDR"] == '89.246.162.16')
-//tx_rnbase_util_Debug::debug([$confId, $formatter->getConfigurations()->get('sponsorlist.')],__FILE__.':'.__LINE__); // TODO: remove me
 		$fileName = $formatter->getConfigurations()->get($confId.'template');
 		$subpart = $formatter->getConfigurations()->get($confId.'subpart');
 		$searchTemplate = '';
 		try {
 			$searchTemplate = tx_rnbase_util_Templates::getSubpartFromFile($fileName, $subpart);
-			$searchTemplate = $this->addTrades($searchTemplate, $formatter, $confId.'form.trade.', 'TRADE');
+			$searchTemplate = $this->addTrades($searchTemplate, $formatter, $confId.'form.trade.', 'TRADE', $this->selectedTrades);
+			$searchTemplate = $this->addCategories($searchTemplate, $formatter, $confId.'form.trade.', 'CATEGORY', $this->selectedCategories);
 			$markerArray = array();
 			$link = $this->createPageUri($formatter->getConfigurations(), $confId.'form.');
 			$markerArray['###ACTION_URI###'] = $link->makeUrl(false);
 			$markerArray['###ACTION_PID###'] = $link->destination;
+			$markerArray['###SEARCH_TERM###'] = htmlspecialchars( $this->searchTerm);
 			$searchTemplate = tx_rnbase_util_Templates::substituteMarkerArrayCached($searchTemplate, $markerArray);
 		}
 		catch(Exception $e) {
@@ -68,16 +85,51 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 				'###SEARCHFORM###' => $searchTemplate,
 		);
 		$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray);
-//		tx_rnbase_util_Debug::debug([$confId, $template],__FILE__.':'.__LINE__); // TODO: remove me
 		return $template;
 	}
 
-	protected function addTrades($template, $formatter, $confId, $markerPrefix) {
+	/**
+	 * Add Trade selection to form
+	 * @param string $template
+	 * @param tx_rnbase_util_FormatUtil $formatter
+	 * @param string $confId
+	 * @param string $markerPrefix
+	 * @param array[int] $selectedTrades
+	 * @return string
+	 */
+	protected function addTrades($template, $formatter, $confId, $markerPrefix, $selectedTrades) {
 		$srv = tx_t3sponsors_util_ServiceRegistry::getTradeService();
 		$fields = $options = array();
 		tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->configurations, $confId.'fields.');
 		tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->configurations, $confId.'options.');
 		$children = $srv->search($fields, $options);
+		foreach ($children As $item) {
+			$item->record['selected'] = in_array($item->getUid(), $selectedTrades) ? 1 : 0;
+		}
+		$listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
+		$out = $listBuilder->render($children,false, $template, 'tx_rnbase_util_SimpleMarker',
+				$confId, $markerPrefix, $formatter);
+		return $out;
+	}
+
+	/**
+	 * Add Trade selection to form
+	 * @param string $template
+	 * @param tx_rnbase_util_FormatUtil $formatter
+	 * @param string $confId
+	 * @param string $markerPrefix
+	 * @param array[int] $selectedTrades
+	 * @return string
+	 */
+	protected function addCategories($template, $formatter, $confId, $markerPrefix, $selectedCategories) {
+		$srv = tx_t3sponsors_util_ServiceRegistry::getCategoryService();
+		$fields = $options = array();
+		tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->configurations, $confId.'fields.');
+		tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->configurations, $confId.'options.');
+		$children = $srv->search($fields, $options);
+		foreach ($children As $item) {
+			$item->record['selected'] = in_array($item->getUid(), $selectedCategories) ? 1 : 0;
+		}
 		$listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
 		$out = $listBuilder->render($children,false, $template, 'tx_rnbase_util_SimpleMarker',
 				$confId, $markerPrefix, $formatter);

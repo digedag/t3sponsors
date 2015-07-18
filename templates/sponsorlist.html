@@ -88,7 +88,7 @@ For usage with DAM replace the following markers:
 <input type="hidden" name="id" value="###ACTION_PID###" />
 <div class="form-group">
     <label for="t3sponsors_search">Suche</label>
-    <input type="text" class="form-control" id="t3sponsors_search" name="t3sponsors[search]" placeholder="Suchbegriff">
+    <input type="text" class="form-control" id="t3sponsors_search" name="t3sponsors[search]" placeholder="Suchbegriff" value="###SEARCH_TERM###">
 </div>
 
 ###TRADES###
@@ -97,11 +97,24 @@ For usage with DAM replace the following markers:
 
 ###TRADE###
   <label class="checkbox-inline">
-    <input type="checkbox" id="inlineCheckbox###TRADE_LINE###" name="t3sponsors[search_trade][]" value="###TRADE_UID###"> ###TRADE_NAME###
+    <input type="checkbox" id="inlineCheckbox###TRADE_LINE###" name="t3sponsors[search_trade][]" value="###TRADE_UID###" ###TRADE_SELECTED### /> ###TRADE_NAME###
   </label>
 ###TRADE###
 </div>
 ###TRADES###
+
+###CATEGORIES###
+<div class="form-group">
+  <label>Kategorie</label>
+
+###CATEGORY###
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox###CATEGORY_LINE###" name="t3sponsors[search_cat][]" value="###CATEGORY_UID###" ###CATEGORY_SELECTED### /> ###CATEGORY_NAME###
+  </label>
+###CATEGORY###
+</div>
+###CATEGORIES###
+
 <button type="submit" class="btn btn-primary">Suche</button>
 </form>
 ###SEARCH_FORM###
