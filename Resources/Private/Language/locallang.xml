@@ -16,6 +16,7 @@
 			<label index="label_page">Page</label>
 			<label index="label_description">Description</label>
 			<label index="label_pictures">Pictures</label>
+			<label index="label_mapnotavailable">Map not available</label>
 
 
 		</languageKey>
