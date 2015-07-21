@@ -41,6 +41,9 @@
 			<label index="tx_t3sponsors_companies.address">Address</label>
 			<label index="tx_t3sponsors_companies.zip">Zip</label>
 			<label index="tx_t3sponsors_companies.city">City</label>
+			<label index="tx_t3sponsors_companies_countrycode">Country Code</label>
+			<label index="tx_t3sponsors_companies_lng">Longitude</label>
+			<label index="tx_t3sponsors_companies_lat">Latitude</label>
 			<label index="tx_t3sponsors_companies.categories">Categories</label>
 			<label index="tx_t3sponsors_companies.hasreport">Enable link to details page</label>
 
@@ -79,6 +82,9 @@
 			<label index="tx_t3sponsors_companies.address">Strasse</label>
 			<label index="tx_t3sponsors_companies.zip">PLZ</label>
 			<label index="tx_t3sponsors_companies.city">Stadt</label>
+			<label index="tx_t3sponsors_companies_countrycode">Länderkürzel</label>
+			<label index="tx_t3sponsors_companies_lng">Longitude</label>
+			<label index="tx_t3sponsors_companies_lat">Latitude</label>
 			<label index="tx_t3sponsors_companies.categories">Kategorien</label>
 			<label index="tx_t3sponsors_companies.hasreport">Link zur Detailseite</label>
 

@@ -16,6 +16,8 @@ plugin.tx_t3sponsors {
   pictureMaxW = 160
 
 
+  # cat=T3sponsors/sponsorshow; type=string;label=HTML Template of details view
+  sponsorshowTemplate = EXT:t3sponsors/templates/sponsorshow.html
   # cat=T3sponsors/sponsorlist; type=string;label=HTML Template of list view
   sponsorlistTemplate = EXT:t3sponsors/templates/sponsorlist.html
 
@@ -24,5 +26,14 @@ plugin.tx_t3sponsors {
 
   # cat=T3sponsors/sponsorlistpage; type=int+;label=PID of page for sponsor list
   sponsorlistpage = 0
+
+  # cat=T3sponsors (map)/map_width; type=int+;label=Width of GoogleMap
+  map_width = 500
+  # cat=T3sponsors (map)/map_height; type=int+;label=Heigth of GoogleMap
+  map_height = 400
+  # cat=T3sponsors (map)/map_controls; type=string;label=Controls to show. Possible values are largeMap,smallMap,smallZoom,scale,mapType,overviewMap
+  map_controls = largeMap,mapType
+  # cat=T3sponsors (map)/map_forceinit; type=boolean;label=Force JavaScript-Initialisation of GoogleMap. Useful if Map doesn't start.
+  map_forceinit = 1
 
 }

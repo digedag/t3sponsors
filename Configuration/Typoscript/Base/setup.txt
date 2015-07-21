@@ -57,9 +57,11 @@ lib.t3sponsors.trade {
 }
 
 lib.t3sponsors.sponsor {
+  _map =< lib.t3sponsors.map
   _map {
     template = EXT:t3sponsors/templates/sponsorlist.html
     subpart = ###SPONSOR_MAP_BUBBLE###
+    sponsor =< lib.t3sponsors.sponsor
   }
   links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
   pagebrowser.limit = 20
@@ -110,8 +112,37 @@ lib.t3sponsors.sponsor {
   category =< lib.t3sponsors.category
 }
 
+# Defaultsettings for GoogleMaps
+lib.t3sponsors.map {
+  width = {$plugin.tx_t3sponsors.map_width}
+  height = {$plugin.tx_t3sponsors.map_height}
+  # Possible Controls: largeMap,smallMap,smallZoom,scale,mapType,overviewMap
+  google.controls = {$plugin.tx_t3sponsors.map_controls}
+  google.forcejs = {$plugin.tx_t3sponsors.map_forceinit}
+  # Possible values: RNMAP_MAPTYPE_STREET,RNMAP_MAPTYPE_SATELLITE,RNMAP_MAPTYPE_HYBRID,RNMAP_MAPTYPE_PHYSICAL
+  maptype = RNMAP_MAPTYPE_STREET
+  icon.sponsorlogo =< lib.t3sponsors.mapIcon
+}
+
+lib.t3sponsors.mapIcon {
+  file = GIFBUILDER
+  file {
+    XY = 22,22
+    backColor = #ffffff
+    10 = IMAGE
+    10.offset = 22-[10.w]/2,22-[10.h]/2
+    10.file {
+      import.data = register:T3SPONSORS_MAPICON
+      maxW = 20
+      maxH = 20
+    }
+  }
+}
+
+
 # Ab hier Konfiguration der einzelnen Views 
 plugin.tx_t3sponsors {
+  sponsorshowTemplate = {$plugin.tx_t3sponsors.sponsorshowTemplate}
   sponsorlistTemplate = {$plugin.tx_t3sponsors.sponsorlistTemplate}
 
   sponsorlist.sponsor =< lib.t3sponsors.sponsor
@@ -136,6 +167,7 @@ plugin.tx_t3sponsors {
       }
 
       options.orderby.SPONSOR.NAME1 = asc
+      options.distinct = 1
 #      options.orderby.RAND = 1
 #      options.limit = 1
 #      options.debug = 1

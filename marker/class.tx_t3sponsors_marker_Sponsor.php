@@ -109,9 +109,9 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 			$this->disableLink($markerArray, $subpartArray, $wrappedSubpartArray, $linkMarker, $remove > 0);
 		}
 	}
+
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php'])	{
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php']);
 }
-?>
