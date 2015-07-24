@@ -32,14 +32,19 @@ tx_rnbase::load ( 'tx_rnbase_util_Templates' );
 class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 
 	function createOutput($template, &$viewData, &$configurations, &$formatter) {
+		$markerArray = array();
+		$subpartArray = array();
 		// Wir holen die Daten von der Action ab
-		$items = & $viewData->offsetGet ( 'sponsors' );
-
+		$items = & $viewData->offsetGet('sponsors');
+		$filter = $viewData->offsetGet('filter');
+		if($filter->hideResult()) {
+//			$subpartArray['###SPONSORS###'] = '';
+			$items = array();
+		}
 		$listBuilder = tx_rnbase::makeInstance ( 'tx_rnbase_util_ListBuilder' );
-		$template = $listBuilder->render ( $items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $this->getController()->getConfId().'sponsor.', 'SPONSOR', $formatter );
+		$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $this->getController()->getConfId().'sponsor.', 'SPONSOR', $formatter );
+
 		if (tx_rnbase_util_BaseMarker::containsMarker ( $template, 'SPONSORMAP' )) {
-			$markerArray = array();
-			$subpartArray = array();
 			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $configurations, $this->getController ()->getConfId () . 'sponsor._map.', 'SPONSOR' );
 			$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); //, $wrappedSubpartArray);
 		}

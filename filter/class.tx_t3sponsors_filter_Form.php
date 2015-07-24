@@ -42,7 +42,7 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 	protected function initFilter(&$fields, &$options, &$parameters, &$configurations, $confId) {
 		$configurations->convertToUserInt();
 		//if($_SERVER["REMOTE_ADDR"] == '89.246.162.16')
-		$this->searchTerm = $parameters->get('search');
+		$this->searchTerm = $parameters->getCleaned('search');
 		$this->selectedTrades = $parameters->get('search_trade');
 		$this->selectedCategories = $parameters->get('search_cat');
 		if(!empty($this->selectedTrades))
@@ -61,6 +61,14 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 		return TRUE;
 	}
 
+	/* (non-PHPdoc)
+	 * @see tx_rnbase_filter_BaseFilter::hideResult()
+	 */
+	public function hideResult() {
+		return empty($this->getParameters()->getAll());
+	}
+
+
 	function parseTemplate($template, &$formatter, $confId, $marker = 'FILTER') {
 		if(!tx_rnbase_util_BaseMarker::containsMarker($template, 'SEARCHFORM'))
 			return $template;
@@ -70,7 +78,7 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 		try {
 			$searchTemplate = tx_rnbase_util_Templates::getSubpartFromFile($fileName, $subpart);
 			$searchTemplate = $this->addTrades($searchTemplate, $formatter, $confId.'form.trade.', 'TRADE', $this->selectedTrades);
-			$searchTemplate = $this->addCategories($searchTemplate, $formatter, $confId.'form.trade.', 'CATEGORY', $this->selectedCategories);
+			$searchTemplate = $this->addCategories($searchTemplate, $formatter, $confId.'form.category.', 'CATEGORY', $this->selectedCategories);
 			$markerArray = array();
 			$link = $this->createPageUri($formatter->getConfigurations(), $confId.'form.');
 			$markerArray['###ACTION_URI###'] = $link->makeUrl(false);
