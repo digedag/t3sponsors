@@ -34,8 +34,11 @@ CREATE TABLE tx_t3sponsors_companies (
 	phone varchar(150) DEFAULT '' NOT NULL,
 	fax varchar(150) DEFAULT '' NOT NULL,
 	mobile varchar(150) DEFAULT '' NOT NULL,
+	contactfirstname varchar(150) DEFAULT '' NOT NULL,
+	contactlastname varchar(150) DEFAULT '' NOT NULL,
 	lng tinytext,
 	lat tinytext,
+	tags text NOT NULL,
 
 	categories int(11) DEFAULT '0' NOT NULL,
 	trades int(11) DEFAULT '0' NOT NULL,

@@ -38,6 +38,9 @@
 			<label index="tx_t3sponsors_companies.phone">Phone</label>
 			<label index="tx_t3sponsors_companies.fax">Fax</label>
 			<label index="tx_t3sponsors_companies.mobile">Mobile</label>
+			<label index="tx_t3sponsors_companies_contactfirstname">Firstname contact person</label>
+			<label index="tx_t3sponsors_companies_contactlastname">Lastname contact person</label>
+			<label index="tx_t3sponsors_companies_tags">Tags</label>
 			<label index="tx_t3sponsors_companies.address">Address</label>
 			<label index="tx_t3sponsors_companies.zip">Zip</label>
 			<label index="tx_t3sponsors_companies.city">City</label>
@@ -79,6 +82,9 @@
 			<label index="tx_t3sponsors_companies.phone">Telefon</label>
 			<label index="tx_t3sponsors_companies.fax">Fax</label>
 			<label index="tx_t3sponsors_companies.mobile">Mobil</label>
+			<label index="tx_t3sponsors_companies_contactfirstname">Vorname Kontaktperson</label>
+			<label index="tx_t3sponsors_companies_contactlastname">Nachname Kontaktperson</label>
+			<label index="tx_t3sponsors_companies_tags">Tags</label>
 			<label index="tx_t3sponsors_companies.address">Strasse</label>
 			<label index="tx_t3sponsors_companies.zip">PLZ</label>
 			<label index="tx_t3sponsors_companies.city">Stadt</label>
