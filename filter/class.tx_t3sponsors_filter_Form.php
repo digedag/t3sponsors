@@ -40,6 +40,7 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 	 * @param string $confId
 	 */
 	protected function initFilter(&$fields, &$options, &$parameters, &$configurations, $confId) {
+		$configurations->convertToUserInt();
 		//if($_SERVER["REMOTE_ADDR"] == '89.246.162.16')
 		$this->searchTerm = $parameters->get('search');
 		$this->selectedTrades = $parameters->get('search_trade');
@@ -52,7 +53,7 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 			$fields[SEARCH_FIELD_JOINED][] = array(
 					'value' => $this->searchTerm,
 					'operator' => OP_LIKE,
-					'cols' => array('SPONSOR.NAME1', 'SPONSOR.NAME2', 'SPONSOR.DESCRIPTION'),
+					'cols' => array('SPONSOR.NAME1', 'SPONSOR.NAME2', 'SPONSOR.DESCRIPTION', 'SPONSOR.TAGS'),
 			);
 		}
 //		$options['debug'] =1;

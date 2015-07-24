@@ -109,13 +109,12 @@ Template for search form
 
 ###TRADES###
 <div class="form-group">
-  <label>Branche</label>
-
+  <label for="t3sponsors_trade">###LABEL_TRADE###</label>
+  <select class="form-control" name="t3sponsors[search_trade][]">
 ###TRADE###
-  <label class="checkbox-inline">
-    <input type="checkbox" id="inlineCheckbox###TRADE_LINE###" name="t3sponsors[search_trade][]" value="###TRADE_UID###" ###TRADE_SELECTED### /> ###TRADE_NAME###
-  </label>
+		<option value="###TRADE_UID###" ###TRADE_SELECTED###>###TRADE_NAME###</option>
 ###TRADE###
+  </select>
 </div>
 ###TRADES###
 
@@ -134,6 +133,24 @@ Template for search form
 <button type="submit" class="btn btn-primary">Suche</button>
 </form>
 ###SEARCH_FORM###
+
+
+<!-- 
+Branchenauswahl im Formular mit Checkboxen
+###TRADES###
+<div class="form-group">
+  <label>Branche</label>
+
+###TRADE###
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox###TRADE_LINE###" name="t3sponsors[search_trade][]" value="###TRADE_UID###" ###TRADE_SELECTED### /> ###TRADE_NAME###
+  </label>
+###TRADE###
+</div>
+###TRADES###
+
+ -->
+
 
 
 </body>

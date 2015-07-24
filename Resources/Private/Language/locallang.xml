@@ -13,11 +13,14 @@
 			<label index="label_sponsor">Sponsor</label>
 			<label index="label_categories">Categories</label>
 			<label index="label_category">Category</label>
+			<label index="label_contact">Contact</label>
 			<label index="label_page">Page</label>
 			<label index="label_description">Description</label>
 			<label index="label_pictures">Pictures</label>
 			<label index="label_mapnotavailable">Map not available</label>
 
+			<label index="label_trade">Trade</label>
+			<label index="label_trades">Trades</label>
 
 		</languageKey>
 		<languageKey index="de" type="array">
@@ -25,9 +28,13 @@
 			<label index="label_foundsponsors">Gefundene Sponsoren:</label>
 			<label index="label_categories">Kategorien</label>
 			<label index="label_category">Kategorie</label>
+			<label index="label_contact">Kontakt</label>
 			<label index="label_page">Seite</label>
 			<label index="label_description">Beschreibung</label>
 			<label index="label_pictures">Bilder</label>
+
+			<label index="label_trade">Branche</label>
+			<label index="label_trades">Branchen</label>
 			
 		</languageKey>
 	</data>

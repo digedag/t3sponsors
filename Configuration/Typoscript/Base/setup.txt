@@ -110,6 +110,16 @@ lib.t3sponsors.sponsor {
     ifBlank = -
   }
   category =< lib.t3sponsors.category
+  dccontact = COA
+  dccontact {
+    10 = TEXT
+    10.field = contactfirstname
+    10.noTrimWrap = || |
+    10.required = 1
+    20 = TEXT
+    20.field = contactlastname
+  }
+
 }
 
 # Defaultsettings for GoogleMaps
@@ -154,7 +164,8 @@ plugin.tx_t3sponsors {
       form.trade =< lib.t3sponsors.trade
       form.trade {
         selected = TEXT
-        selected.value = checked
+        selected.value = selected="selected"
+#        selected.value = checked
         selected.if.value.field = selected
         selected.if.equals = 1
       }
