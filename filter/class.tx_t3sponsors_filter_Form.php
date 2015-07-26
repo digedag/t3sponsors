@@ -65,8 +65,10 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 	 * @see tx_rnbase_filter_BaseFilter::hideResult()
 	 */
 	public function hideResult() {
+		if(!$this->getConfigurations()->getBool($this->getConfId().'hideResultInitial'))
+			return FALSE;
 		$params = $this->getParameters()->getAll();
-		return $params ? TRUE : FALSE;
+		return $params ? FALSE : TRUE;
 	}
 
 

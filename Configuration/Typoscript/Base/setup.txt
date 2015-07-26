@@ -161,6 +161,8 @@ plugin.tx_t3sponsors {
       class = tx_t3sponsors_filter_Form
       template = EXT:t3sponsors/templates/sponsorlist.html
       subpart = ###SEARCH_FORM###
+      # Soll die Ergebnisliste initial ausgeblendet werden
+      hideResultInitial = 1
       form.trade =< lib.t3sponsors.trade
       form.trade {
         selected = TEXT
