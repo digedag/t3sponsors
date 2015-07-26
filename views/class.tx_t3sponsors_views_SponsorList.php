@@ -35,7 +35,7 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 		$markerArray = array();
 		$subpartArray = array();
 		// Wir holen die Daten von der Action ab
-		$items = & $viewData->offsetGet('sponsors');
+		$items = $viewData->offsetGet('sponsors');
 		$filter = $viewData->offsetGet('filter');
 		if($filter->hideResult()) {
 //			$subpartArray['###SPONSORS###'] = '';
@@ -130,7 +130,7 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 	 *
 	 * @return string
 	 */
-	function getMainSubpart() {
+	function getMainSubpart(&$viewData) {
 		return '###SPONSORLIST###';
 	}
 }
