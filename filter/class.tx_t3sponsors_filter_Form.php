@@ -45,10 +45,16 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter {
 		$this->searchTerm = $parameters->getCleaned('search');
 		$this->selectedTrades = $parameters->get('search_trade');
 		$this->selectedCategories = $parameters->get('search_cat');
-		if(!empty($this->selectedTrades))
-			$fields['TRADEMM.UID_LOCAL'][OP_IN_INT] = implode(',', $this->selectedTrades);
-		if(!empty($this->selectedCategories))
-			$fields['CATMM.UID_LOCAL'][OP_IN_INT] = implode(',', $this->selectedCategories);
+		if(!empty($this->selectedTrades)) {
+			$trades = implode(',', $this->selectedTrades);
+			if($trades)
+				$fields['TRADEMM.UID_LOCAL'][OP_IN_INT] = $trades;
+		}
+		if(!empty($this->selectedCategories)) {
+			$cats = implode(',', $this->selectedCategories);
+			if($cats)
+				$fields['CATMM.UID_LOCAL'][OP_IN_INT] = $cats;
+		}
 		if(!empty($this->searchTerm)) {
 			$fields[SEARCH_FIELD_JOINED][] = array(
 					'value' => $this->searchTerm,
