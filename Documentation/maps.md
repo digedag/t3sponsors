@@ -15,7 +15,7 @@ plugin.tx_t3sponsors.sponsorlist.sponsor._map {
     description = <h3>Wichtig</h3><p>Ein Punkt auf der Karte.</p>
     zoomMin = 0
     zoomMax = 18
-    icon1 {
+    icon {
       name = icon1
       image = IMG_RESOURCE
       image.file = fileadmin/logos/point.png
@@ -28,5 +28,5 @@ plugin.tx_t3sponsors.sponsorlist.sponsor._map {
     }
   }
 }
-
 ```
+Es können beliebig viele POIs angelegt werden. Dazu einfach unter _map.poi. weitere Punkte anlegen. Jedes Icon benötigt einen eindeutigen **name**.
