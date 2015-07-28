@@ -189,9 +189,9 @@ plugin.tx_t3sponsors {
   sponsorshow {
     sponsor =< lib.t3sponsors.sponsor
     sponsor {
-		  damlogo.file.maxH = {$plugin.tx_t3sponsors.logoBigMaxH}
-		  damlogo.file.maxW = {$plugin.tx_t3sponsors.logoBigMaxW}
-		  name1.wrap >
+      damlogo.file.maxH = {$plugin.tx_t3sponsors.logoBigMaxH}
+      damlogo.file.maxW = {$plugin.tx_t3sponsors.logoBigMaxW}
+      name1.wrap >
     }
   }
 
