@@ -7,6 +7,7 @@ $t3s_companies = array (
 		'ctrl' => array (
 			'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies',
 			'label' => 'name1',
+			'searchFields' => 'uid,name1,name2,address,city,zip,email,tags,contactlastname',
 			'tstamp'    => 'tstamp',
 			'crdate'    => 'crdate',
 			'cruser_id' => 'cruser_id',

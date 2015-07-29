@@ -7,6 +7,7 @@ $t3s_categories = array (
 		'ctrl' => array (
 			'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_categories',
 			'label' => 'name',
+			'searchFields' => 'uid,name,description',
 			'tstamp'    => 'tstamp',
 			'crdate'    => 'crdate',
 			'cruser_id' => 'cruser_id',
