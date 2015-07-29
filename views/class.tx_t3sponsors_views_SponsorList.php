@@ -38,11 +38,14 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 		$items = $viewData->offsetGet('sponsors');
 		$filter = $viewData->offsetGet('filter');
 		if($filter->hideResult()) {
-//			$subpartArray['###SPONSORS###'] = '';
+			$subpartArray['###SPONSORS###'] = '';
 			$items = array();
+			$template = $filter->getMarker()->parseTemplate($template, $formatter, $this->getController()->getConfId().'sponsor.filter.', 'SPONSOR');
 		}
-		$listBuilder = tx_rnbase::makeInstance ( 'tx_rnbase_util_ListBuilder' );
-		$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $this->getController()->getConfId().'sponsor.', 'SPONSOR', $formatter );
+		else {
+			$listBuilder = tx_rnbase::makeInstance ( 'tx_rnbase_util_ListBuilder' );
+			$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $this->getController()->getConfId().'sponsor.', 'SPONSOR', $formatter );
+		}
 
 		if (tx_rnbase_util_BaseMarker::containsMarker ( $template, 'SPONSORMAP' )) {
 			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $configurations, $this->getController ()->getConfId () . 'sponsor._map.', 'SPONSOR' );

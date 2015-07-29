@@ -98,11 +98,11 @@ lib.t3sponsors.sponsor {
   }
   name1.wrap = <b>|</b>
   description {
-  	parseFunc = < lib.parseFunc_RTE
+    parseFunc = < lib.parseFunc_RTE
   }
   www {
-  	typolink.target = _BLANK
-  	typolink.parameter.field = www
+    typolink.target = _BLANK
+    typolink.parameter.field = www
     typolink.ATagParams = title="{field:name1}" alt="Link to {field:name1}"
     typolink.ATagParams.insertData = 1
     ifBlank = -
