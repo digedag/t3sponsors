@@ -49,8 +49,8 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 
 		if (tx_rnbase_util_BaseMarker::containsMarker ( $template, 'SPONSORMAP' )) {
 			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $configurations, $this->getController ()->getConfId () . 'sponsor._map.', 'SPONSOR' );
-			$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); //, $wrappedSubpartArray);
 		}
+		$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); //, $wrappedSubpartArray);
 
 		return $template;
 	}
