@@ -22,7 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
 
 tx_rnbase::load('tx_rnbase_util_BaseMarker');
 
@@ -40,13 +39,14 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	 *        Von diesem String hängen die entsprechenden weiteren Marker ab: ###CLUB_NAME###, ###COACH_ADDRESS_WEBSITE###
 	 * @return String das geparste Template
 	 */
-	public function parseTemplate($template, &$item, &$formatter, $confId, $marker = 'SPONSOR') {
+	public function parseTemplate($template, $item, $formatter, $confId, $marker = 'SPONSOR') {
 		if(!is_object($item)) {
 			// Ist kein Objekt vorhanden wird ein leeres Objekt verwendet.
 			$item = self::getEmptyInstance('tx_t3sponsors_models_Sponsor');
 		}
 
 		// Es wird das MarkerArray mit den Daten des Teams gefüllt.
+		$subpartArray = $wrappedSubpartArray = array();
 		$ignore = self::findUnusedCols($item->record, $template, $marker);
 		$markerArray = $formatter->getItemMarkerArrayWrapped($item->record, $confId , $ignore, $marker.'_',$item->getColumnNames());
 		$this->prepareLinks($item, $marker, $markerArray, $subpartArray, $wrappedSubpartArray, $confId, $formatter);
@@ -59,6 +59,7 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 		$subpartArray = array();
 		$wrappedSubpartArray = array();
 
+		$params = array();
 		$params['confid'] = $confId;
 		$params['marker'] = $marker;
 		$params['sponsor'] = $item;
@@ -75,10 +76,10 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	 * @param string $markerPrefix
 	 * @return string
 	 */
-	protected function _addCategories($template, &$item, &$formatter, $confId, $markerPrefix) {
+	protected function _addCategories($template, $item, $formatter, $confId, $markerPrefix) {
 		$srv = tx_t3sponsors_util_ServiceRegistry::getCategoryService();
+		$options = $fields = array();
 		$fields['CATMM.UID_FOREIGN'][OP_EQ_INT] = $item->uid;
-		$options = array();
 		tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->configurations, $confId.'fields.');
 		tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->configurations, $confId.'options.');
 		$children = $srv->search($fields, $options);
@@ -100,6 +101,8 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 	 */
 	public function prepareLinks(&$item, $marker, &$markerArray, &$subpartArray, &$wrappedSubpartArray, $confId, &$formatter) {
 		$linkId = 'show';
+		$cObjData = $formatter->getConfigurations()->getCObj()->data;
+		$formatter->getConfigurations()->getCObj()->data = $item->record;
 		if($item->hasReport()) {
 			$this->initLink($markerArray, $subpartArray, $wrappedSubpartArray, $formatter, $confId, $linkId, $marker, array('sponsor' => $item->uid));
 		}
@@ -108,10 +111,11 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_BaseMarker {
 			$remove = intval($formatter->configurations->get($confId.'links.'.$linkId.'.removeIfDisabled'));
 			$this->disableLink($markerArray, $subpartArray, $wrappedSubpartArray, $linkMarker, $remove > 0);
 		}
+		$formatter->getConfigurations()->getCObj()->data = $cObjData;
 	}
 
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php']);
+if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php'])	{
+	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Sponsor.php']);
 }
