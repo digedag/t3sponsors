@@ -55,16 +55,16 @@ class tx_t3sponsors_search_Sponsor extends tx_rnbase_util_SearchBase {
   protected function getJoins($tableAliases) {
   	$join = '';
     if(isset($tableAliases['CATMM']) || isset($tableAliases['CAT'])) {
-    	$join .= ' JOIN tx_t3sponsors_categories_mm CATMM ON SPONSOR.uid = CATMM.uid_foreign AND CATMM.tablenames = \'tx_t3sponsors_companies\'';
+    	$join .= ' LEFT JOIN tx_t3sponsors_categories_mm CATMM ON SPONSOR.uid = CATMM.uid_foreign AND CATMM.tablenames = \'tx_t3sponsors_companies\'';
     }
     if(isset($tableAliases['CAT'])) {
-    	$join .= ' JOIN tx_t3sponsors_categories CAT ON CAT.uid = CATMM.uid_local';
+    	$join .= ' LEFT JOIN tx_t3sponsors_categories CAT ON CAT.uid = CATMM.uid_local';
     }
     if(isset($tableAliases['TRADEMM']) || isset($tableAliases['TRADE'])) {
-    	$join .= ' JOIN tx_t3sponsors_trades_mm TRADEMM ON SPONSOR.uid = TRADEMM.uid_foreign AND TRADEMM.tablenames = \'tx_t3sponsors_companies\'';
+    	$join .= ' LEFT JOIN tx_t3sponsors_trades_mm TRADEMM ON SPONSOR.uid = TRADEMM.uid_foreign AND TRADEMM.tablenames = \'tx_t3sponsors_companies\'';
     }
     if(isset($tableAliases['TRADE'])) {
-    	$join .= ' JOIN tx_t3sponsors_trades TRADE ON TRADE.uid = TRADEMM.uid_local';
+    	$join .= ' LEFT JOIN tx_t3sponsors_trades TRADE ON TRADE.uid = TRADEMM.uid_local';
     }
     // Hook to append other tables
 		tx_rnbase_util_Misc::callHook('t3sponsors','search_Sponsor_getJoins_hook',
