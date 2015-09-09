@@ -100,6 +100,7 @@ lib.t3sponsors.sponsor {
   description {
     parseFunc = < lib.parseFunc_RTE
   }
+  openingtime.br = 1
   www {
     typolink.target = _BLANK
     typolink.parameter.field = www

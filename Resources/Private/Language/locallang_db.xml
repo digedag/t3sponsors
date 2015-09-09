@@ -30,6 +30,7 @@
 			<label index="tx_t3sponsors_companies.name1">Name</label>
 			<label index="tx_t3sponsors_companies.name2">More name</label>
 			<label index="tx_t3sponsors_companies.description">Description</label>
+			<label index="tx_t3sponsors_companies.openingtime">Opening times</label>
 			<label index="tx_t3sponsors_companies.comment">Comment</label>
 			<label index="tx_t3sponsors_companies.logo">Logo</label>
 			<label index="tx_t3sponsors_companies.pictures">Pictures</label>
@@ -75,6 +76,7 @@
 			<label index="tx_t3sponsors_companies.name1">Name</label>
 			<label index="tx_t3sponsors_companies.name2">Weiter Name</label>
 			<label index="tx_t3sponsors_companies.description">Beschreibung</label>
+			<label index="tx_t3sponsors_companies.openingtime">Öffnungszeiten</label>
 			<label index="tx_t3sponsors_companies.comment">Kommentar</label>
 			<label index="tx_t3sponsors_companies.logo">Logo</label>
 			<label index="tx_t3sponsors_companies.pictures">Bilder</label>
