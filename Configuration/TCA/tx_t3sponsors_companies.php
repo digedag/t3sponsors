@@ -283,7 +283,7 @@ $t3s_companies = array (
 		),
 		'types' => array (
 				'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l18n_parent, l18n_diffsource,hidden;;1;;1-1-1,name1,name2,description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],categories,trades,damlogo,logo,dampictures,pictures,comment,tags,hasreport,
-		--div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime,www,email,phone,fax,mobile')
+		--div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],www,email,phone,fax,mobile')
 		),
 		'palettes' => array (
 				'1' => array('showitem' => '')
