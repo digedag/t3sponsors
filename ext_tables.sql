@@ -39,7 +39,7 @@ CREATE TABLE tx_t3sponsors_companies (
 	lng tinytext,
 	lat tinytext,
 	tags text NOT NULL,
-	openingtime tinytext,
+	openingtime text NOT NULL,
 
 	categories int(11) DEFAULT '0' NOT NULL,
 	trades int(11) DEFAULT '0' NOT NULL,
