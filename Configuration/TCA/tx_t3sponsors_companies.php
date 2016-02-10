@@ -238,6 +238,7 @@ $t3s_companies = array (
 						'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_tags',
 						'config' => Array (
 								'type' => 'input',
+								'max' => '4096',
 								'size' => '50',
 								'eval' => 'trim',
 						)
