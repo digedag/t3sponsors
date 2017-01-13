@@ -63,7 +63,15 @@ lib.t3sponsors.sponsor {
     subpart = ###SPONSOR_MAP_BUBBLE###
     sponsor =< lib.t3sponsors.sponsor
   }
-  links.show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
+  links {
+    show.pid = {$plugin.tx_t3sponsors.sponsorshowpage}
+    show.disable = CASE
+    show.disable.key.field = hasreport
+    show.disable.1 = TEXT
+    show.disable.1.value = 0
+    show.disable.default = TEXT
+    show.disable.default.value = 1
+  }
   pagebrowser.limit = 20
   roll.value = 1
   dampictures = USER

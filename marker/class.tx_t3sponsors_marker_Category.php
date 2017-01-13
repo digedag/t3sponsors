@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007-2012 Rene Nitzsche (rene@system25.de)
+*  (c) 2007-2017 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,9 +22,8 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-
 tx_rnbase::load('tx_rnbase_util_BaseMarker');
+tx_rnbase::load('tx_rnbase_util_Templates');
 
 /**
  * Renders categories
@@ -48,12 +47,12 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 		}
 
 		// Es wird das MarkerArray gefüllt.
-		$markerArray = $formatter->getItemMarkerArrayWrapped($item->record, $confId , 0, $marker.'_',$item->getColumnNames());
+		$markerArray = $formatter->getItemMarkerArrayWrapped($item->getProperty(), $confId , 0, $marker.'_',$item->getColumnNames());
 
-		if($this->containsMarker($template, $marker.'_SPONSORS'))
-			$template = $this->_addSponsors($template, $item, $formatter, $confId.'fewo.', $marker.'_SPONSOR');
+		if(self::containsMarker($template, $marker.'_SPONSORS'))
+			$template = $this->_addSponsors($template, $item, $formatter, $confId.'sponsor.', $marker.'_SPONSOR');
 
-		$out = $formatter->cObj->substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
+		$out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
 		return $out;
 	}
 
@@ -68,10 +67,10 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 	 */
 	protected function _addSponsors($template, &$item, &$formatter, $confId, $markerPrefix) {
 		$srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
-		$fields['CATMM.UID_LOCAL'][OP_EQ_INT] = $item->uid;
+		$fields['CATMM.UID_LOCAL'][OP_EQ_INT] = $item->getUid();
 		$options = array();
-		tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->configurations, $confId.'fields.');
-		tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->configurations, $confId.'options.');
+		tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->getConfigurations(), $confId.'fields.');
+		tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->getConfigurations(), $confId.'options.');
 		$children = $srv->search($fields, $options);
 		$listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
 		$out = $listBuilder->render($children,
@@ -81,7 +80,3 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker {
 	}
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Category.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/marker/class.tx_t3sponsors_marker_Category.php']);
-}
-?>
