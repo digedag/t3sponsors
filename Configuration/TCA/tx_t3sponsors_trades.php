@@ -18,7 +18,6 @@ $t3s_trades = array (
 			'delete' => 'deleted',
 			'enablecolumns' => array (
 			),
-//			'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
 			'iconfile'          => tx_rnbase_util_Extensions::extRelPath('t3sponsors').'ext_icon.gif',
 		),
 		'interface' => array (

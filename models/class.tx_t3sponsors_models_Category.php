@@ -22,11 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-
-// Die Datenbank-Klasse
-//require_once(t3lib_extMgm::extPath('rn_base') . 'util/class.tx_rnbase_util_DB.php'); // Prüfen
-
 tx_rnbase::load('tx_rnbase_util_DB');
 tx_rnbase::load('tx_rnbase_model_base');
 

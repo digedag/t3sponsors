@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2009-2015 Rene Nitzsche (rene[@]system25.de)
+*  (c) 2009-2017 Rene Nitzsche (rene[@]system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -33,18 +33,14 @@ class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon {
 	protected function getPluginData() {
 		$plugins = array();
 		$plugins['tx_t3sponsors'] = array(
-			'icon'=>t3lib_extMgm::extRelPath('t3sponsors').'/ext_icon.gif',
+			'icon'=>tx_rnbase_util_Extensions::extRelPath('t3sponsors').'/ext_icon.gif',
 			'title'=>'plugin.t3sponsors.label',
 			'description'=>'plugin.t3sponsors.description',
 		);
 		return $plugins;
 	}
 	protected function getLLFile() {
-		return t3lib_extMgm::extPath('t3sponsors').'Resources/Private/Language/locallang_db.xml';
+		return tx_rnbase_util_Extensions::extPath('t3sponsors').'Resources/Private/Language/locallang_db.xml';
 	}
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/util/class.tx_t3sponsors_util_Wizicon.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/util/class.tx_t3sponsors_util_Wizicon.php']);
-}
-?>

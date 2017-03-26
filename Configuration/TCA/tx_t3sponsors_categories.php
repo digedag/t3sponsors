@@ -18,7 +18,6 @@ $t3s_categories = array (
 			'delete' => 'deleted',
 			'enablecolumns' => array (
 			),
-//			'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Category.php',
 			'iconfile'          => tx_rnbase_util_Extensions::extRelPath('t3sponsors').'ext_icon.gif',
 		),
 		'interface' => array (
@@ -117,7 +116,7 @@ if(tx_rnbase_util_TYPO3::isTYPO60OrHigher()) {
 			'config' => array('size' => 1, 'maxitems' => 1),
 	));
 }
-elseif(t3lib_extMgm::isLoaded('dam')) {
+elseif(tx_rnbase_util_Extensions::isLoaded('dam')) {
 	tx_rnbase::load('tx_rnbase_util_TSDAM');
 	$t3s_categories['columns']['damlogo'] = tx_rnbase_util_TSDAM::getMediaTCA('logo');
 	$t3s_categories['columns']['damlogo']['label'] = 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo';

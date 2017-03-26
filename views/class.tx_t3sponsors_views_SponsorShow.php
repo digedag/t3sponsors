@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007-2012 Rene Nitzsche (rene@system25.de)
+*  (c) 2007-2017 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,9 +21,6 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-
-require_once(t3lib_extMgm::extPath('rn_base') . 'class.tx_rnbase.php');
-
 
 tx_rnbase::load('tx_rnbase_view_Base');
 tx_rnbase::load('tx_rnbase_util_BaseMarker');
@@ -48,13 +45,13 @@ class tx_t3sponsors_views_SponsorShow extends tx_rnbase_view_Base {
 		$params['sponsor'] = $sponsor;
 		tx_rnbase_util_BaseMarker::callModules($template, $markerArray, $subpartArray, $wrappedSubpartArray, $params, $formatter);
 		$out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
-		
+
 		return $out;
   }
 
 	/**
 	 * Subpart der im HTML-Template geladen werden soll. Dieser wird der Methode
-	 * createOutput automatisch als $template übergeben. 
+	 * createOutput automatisch als $template übergeben.
 	 *
 	 * @return string
 	 */

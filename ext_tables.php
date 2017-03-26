@@ -29,7 +29,6 @@ tx_rnbase_util_Extensions::addPlugin(Array('LLL:EXT:'.$_EXTKEY.'/Resources/Priva
 if (TYPO3_MODE=='BE') {
 	tx_rnbase::load('tx_rnbase_util_Wizicon');
 	tx_rnbase_util_Wizicon::addWizicon('tx_t3sponsors_util_Wizicon', tx_rnbase_util_Extensions::extPath($_EXTKEY).'util/class.tx_t3sponsors_util_Wizicon.php');
-//	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_t3sponsors_util_Wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'util/class.tx_t3sponsors_util_Wizicon.php';
 }
 
 

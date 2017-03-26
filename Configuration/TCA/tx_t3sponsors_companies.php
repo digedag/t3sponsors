@@ -20,7 +20,6 @@ $t3s_companies = array (
 			'enablecolumns' => array (
 				'disabled' => 'hidden',
 			),
-//			'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'Configuration/TCA/Company.php',
 			'iconfile'          => tx_rnbase_util_Extensions::extRelPath('t3sponsors').'ext_icon.gif',
 		),
 		'interface' => array (

@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2009-2015 Rene Nitzsche (rene@system25.de)
+*  (c) 2009-2017 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -55,15 +55,12 @@ class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC {
 		tx_rnbase_filter_BaseFilter::handleCharBrowser($configurations, $this->getConfId().'sponsor.charbrowser', $viewdata, $fields, $options, $cfg);
 		tx_rnbase_filter_BaseFilter::handlePageBrowser($configurations, $this->getConfId().'sponsor.pagebrowser', $viewdata, $fields, $options, $cfg);
 
-  	$sponsors = $srv->search($fields, $options);
+		$sponsors = $srv->search($fields, $options);
 		$viewdata->offsetSet('sponsors', $sponsors);
 		return null;
 	}
 
-	function getTemplateName() { return 'sponsorlist';}
-	function getViewClassName() { return 'tx_t3sponsors_views_SponsorList';}
+	protected function getTemplateName() { return 'sponsorlist';}
+	protected function getViewClassName() { return 'tx_t3sponsors_views_SponsorList';}
 }
 
-if (!tx_rnbase_util_TYPO3::isTYPO60OrHigher() && defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/actions/class.tx_t3sponsors_actions_SponsorList.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/actions/class.tx_t3sponsors_actions_SponsorList.php']);
-}

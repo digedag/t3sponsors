@@ -22,9 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-// Die Datenbank-Klasse
-//require_once(t3lib_extMgm::extPath('rn_base') . 'util/class.tx_rnbase_util_DB.php'); // Prüfen
-
 tx_rnbase::load('tx_rnbase_model_base');
 tx_rnbase::load('tx_rnbase_maps_ILocation');
 
