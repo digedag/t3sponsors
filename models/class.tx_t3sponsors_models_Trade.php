@@ -29,7 +29,6 @@ tx_rnbase::load('Tx_Rnbase_Domain_Model_Base');
  */
 class tx_t3sponsors_models_Trade extends Tx_Rnbase_Domain_Model_Base
 {
-
     public function getTableName()
     {
         return 'tx_t3sponsors_trades';

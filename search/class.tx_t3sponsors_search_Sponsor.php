@@ -29,7 +29,6 @@ tx_rnbase::load('tx_rnbase_util_SearchBase');
  */
 class tx_t3sponsors_search_Sponsor extends tx_rnbase_util_SearchBase
 {
-
     protected function getTableMappings()
     {
         $tableMapping = array();
@@ -86,7 +85,6 @@ class tx_t3sponsors_search_Sponsor extends tx_rnbase_util_SearchBase
 
     protected function useAlias()
     {
-        return TRUE;
+        return true;
     }
 }
-

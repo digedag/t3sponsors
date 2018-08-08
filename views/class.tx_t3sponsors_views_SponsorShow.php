@@ -30,7 +30,6 @@ tx_rnbase::load('tx_rnbase_util_Templates');
  */
 class tx_t3sponsors_views_SponsorShow extends tx_rnbase_view_Base
 {
-
     public function createOutput($template, &$viewData, &$configurations, &$formatter)
     {
         // Wir holen die Daten von der Action ab

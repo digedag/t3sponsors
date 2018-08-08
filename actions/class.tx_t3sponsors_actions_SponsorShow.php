@@ -66,4 +66,3 @@ class tx_t3sponsors_actions_SponsorShow extends tx_rnbase_action_BaseIOC
         return 'tx_t3sponsors_views_SponsorShow';
     }
 }
-

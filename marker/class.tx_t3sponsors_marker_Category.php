@@ -57,8 +57,9 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker
         // Es wird das MarkerArray gefüllt.
         $markerArray = $formatter->getItemMarkerArrayWrapped($item->getProperty(), $confId, 0, $marker . '_', $item->getColumnNames());
 
-        if (self::containsMarker($template, $marker . '_SPONSORS'))
+        if (self::containsMarker($template, $marker . '_SPONSORS')) {
             $template = $this->_addSponsors($template, $item, $formatter, $confId . 'sponsor.', $marker . '_SPONSOR');
+        }
 
         $out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
         return $out;
@@ -86,4 +87,3 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker
         return $out;
     }
 }
-

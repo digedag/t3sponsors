@@ -30,7 +30,6 @@ tx_rnbase::load('tx_rnbase_util_Wizicon');
  */
 class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon
 {
-
     protected function getPluginData()
     {
         $plugins = [];
@@ -47,4 +46,3 @@ class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon
         return tx_rnbase_util_Extensions::extPath('t3sponsors') . 'Resources/Private/Language/locallang_db.xml';
     }
 }
-

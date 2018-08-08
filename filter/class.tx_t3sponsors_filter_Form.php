@@ -28,7 +28,6 @@
  */
 class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter
 {
-
     private $selectedTrades;
 
     private $selectedCategories;
@@ -53,13 +52,15 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter
         $this->selectedCategories = $parameters->get('search_cat') ?: [];
         if (! empty($this->selectedTrades)) {
             $trades = implode(',', $this->selectedTrades);
-            if ($trades)
+            if ($trades) {
                 $fields['TRADEMM.UID_LOCAL'][OP_IN_INT] = $trades;
+            }
         }
         if (! empty($this->selectedCategories)) {
             $cats = implode(',', $this->selectedCategories);
-            if ($cats)
+            if ($cats) {
                 $fields['CATMM.UID_LOCAL'][OP_IN_INT] = $cats;
+            }
         }
         if (! empty($this->searchTerm)) {
             $fields[SEARCH_FIELD_JOINED][] = array(
@@ -75,7 +76,7 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter
         }
         // $options['debug'] =1;
 
-        return TRUE;
+        return true;
     }
 
     /*
@@ -85,10 +86,10 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter
     public function hideResult()
     {
         if (! $this->getConfigurations()->getBool($this->getConfId() . 'hideResultInitial')) {
-            return FALSE;
+            return false;
         }
         $params = $this->getParameters()->getAll();
-        return $params ? FALSE : TRUE;
+        return $params ? false : true;
     }
 
     public function parseTemplate($template, &$formatter, $confId, $marker = 'FILTER')
@@ -178,9 +179,9 @@ class tx_t3sponsors_filter_Form extends tx_rnbase_filter_BaseFilter
     {
         $link = $configurations->createLink();
         $link->initByTS($configurations, $confId . 'formUrl.', $params);
-        if ($configurations->get($confId . 'formUrl.noCache'))
+        if ($configurations->get($confId . 'formUrl.noCache')) {
             $link->noCache();
+        }
         return $link;
     }
 }
-

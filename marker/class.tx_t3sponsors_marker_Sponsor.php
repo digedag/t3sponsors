@@ -29,7 +29,6 @@ tx_rnbase::load('tx_rnbase_util_Templates');
  */
 class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_SimpleMarker
 {
-
     public function __construct($options = array())
     {
         $this->setClassname('tx_t3sponsors_models_Sponsor');
@@ -66,4 +65,3 @@ class tx_t3sponsors_marker_Sponsor extends tx_rnbase_util_SimpleMarker
         return $out;
     }
 }
-

@@ -31,19 +31,20 @@ tx_rnbase::load('Tx_Rnbase_Service_Base');
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_sv1_Trade extends Tx_Rnbase_Service_Base{
+class tx_t3sponsors_sv1_Trade extends Tx_Rnbase_Service_Base
+{
 
-	/**
-	 * Search database for teams
-	 *
-	 * @param array $fields
-	 * @param array $options
-	 * @return array[tx_t3sponsors_models_Category]
-	 */
-	public function search($fields, $options) {
-		tx_rnbase::load('tx_rnbase_util_SearchBase');
-		$searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Trade');
-		return $searcher->search($fields, $options);
-	}
+    /**
+     * Search database for teams
+     *
+     * @param array $fields
+     * @param array $options
+     * @return array[tx_t3sponsors_models_Category]
+     */
+    public function search($fields, $options)
+    {
+        tx_rnbase::load('tx_rnbase_util_SearchBase');
+        $searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Trade');
+        return $searcher->search($fields, $options);
+    }
 }
-

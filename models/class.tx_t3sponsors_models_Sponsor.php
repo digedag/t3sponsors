@@ -29,7 +29,6 @@ tx_rnbase::load('tx_rnbase_maps_ILocation');
  */
 class tx_t3sponsors_models_Sponsor extends Tx_Rnbase_Domain_Model_Base implements tx_rnbase_maps_ILocation
 {
-
     public function getTableName()
     {
         return 'tx_t3sponsors_companies';
@@ -91,4 +90,3 @@ class tx_t3sponsors_models_Sponsor extends Tx_Rnbase_Domain_Model_Base implement
         return $this->getProperty('lng');
     }
 }
-
