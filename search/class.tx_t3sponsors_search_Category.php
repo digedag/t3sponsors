@@ -29,7 +29,6 @@ tx_rnbase::load('tx_rnbase_util_SearchBase');
  */
 class tx_t3sponsors_search_Category extends tx_rnbase_util_SearchBase
 {
-
     protected function getTableMappings()
     {
         $tableMapping = [];
@@ -44,7 +43,7 @@ class tx_t3sponsors_search_Category extends tx_rnbase_util_SearchBase
         return 'tx_t3sponsors_categories';
     }
 
-    function getWrapperClass()
+    public function getWrapperClass()
     {
         return 'tx_t3sponsors_models_Category';
     }

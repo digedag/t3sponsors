@@ -30,7 +30,6 @@ tx_rnbase::load('tx_rnbase_util_Templates');
  */
 class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base
 {
-
     public function createOutput($template, &$viewData, &$configurations, &$formatter)
     {
         $markerArray = array();
@@ -66,15 +65,17 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base
             $map = tx_rnbase_maps_Factory::createGoogleMap($configurations, $confId);
             tx_rnbase::load('tx_rnbase_maps_Util');
             $template = tx_rnbase_maps_Util::getMapTemplate($configurations, $confId);
-            if (! $template)
+            if (! $template) {
                 return 'MAP TEMPLATE NOT FOUND';
+            }
             $itemMarker = tx_rnbase::makeInstance('tx_t3sponsors_marker_Sponsor');
             tx_rnbase::load('tx_rnbase_maps_google_Icon');
             tx_rnbase::load('tx_rnbase_maps_DefaultMarker');
             foreach ($items as $item) {
                 $bubble = tx_rnbase_maps_Util::createMapBubble($item);
-                if (! $bubble)
+                if (! $bubble) {
                     continue;
+                }
                 // Den Inhalt generieren
                 $bubbleContent = $itemMarker->parseTemplate($template, $item, $configurations->getFormatter(), $confId . 'sponsor.', $markerPrefix);
                 $bubble->setDescription($bubbleContent);

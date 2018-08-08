@@ -46,4 +46,3 @@ class tx_t3sponsors_sv1_Category extends Tx_Rnbase_Service_Base
         return $searcher->search($fields, $options);
     }
 }
-

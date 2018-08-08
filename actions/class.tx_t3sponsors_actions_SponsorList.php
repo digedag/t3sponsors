@@ -31,36 +31,43 @@ tx_rnbase::load('tx_rnbase_util_TYPO3');
  * Controller to show a sponsor list
  *
  */
-class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC {
+class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC
+{
 
-	/**
-	 *
-	 *
-	 * @param array_object $parameters
-	 * @param tx_rnbase_configurations $configurations
-	 * @param array_object $viewData
-	 * @return string error msg or null
-	 */
-	protected function handleRequest(&$parameters,&$configurations, &$viewdata){
-		$srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
-		$filter = tx_rnbase_filter_BaseFilter::createFilter($parameters, $configurations, $viewdata, $this->getConfId(). 'sponsor.filter.');
-		$fields = array();
-		$options = array();
-		$filter->init($fields, $options);
+    /**
+     *
+     *
+     * @param array_object $parameters
+     * @param tx_rnbase_configurations $configurations
+     * @param array_object $viewData
+     * @return string error msg or null
+     */
+    protected function handleRequest(&$parameters, &$configurations, &$viewdata)
+    {
+        $srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
+        $filter = tx_rnbase_filter_BaseFilter::createFilter($parameters, $configurations, $viewdata, $this->getConfId(). 'sponsor.filter.');
+        $fields = array();
+        $options = array();
+        $filter->init($fields, $options);
 
-		$service = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
-		$cfg = array();
-		$cfg['colname'] = 'name1';
-		$cfg['searchcallback'] = array($service, 'search');
-		tx_rnbase_filter_BaseFilter::handleCharBrowser($configurations, $this->getConfId().'sponsor.charbrowser', $viewdata, $fields, $options, $cfg);
-		tx_rnbase_filter_BaseFilter::handlePageBrowser($configurations, $this->getConfId().'sponsor.pagebrowser', $viewdata, $fields, $options, $cfg);
+        $service = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
+        $cfg = array();
+        $cfg['colname'] = 'name1';
+        $cfg['searchcallback'] = array($service, 'search');
+        tx_rnbase_filter_BaseFilter::handleCharBrowser($configurations, $this->getConfId().'sponsor.charbrowser', $viewdata, $fields, $options, $cfg);
+        tx_rnbase_filter_BaseFilter::handlePageBrowser($configurations, $this->getConfId().'sponsor.pagebrowser', $viewdata, $fields, $options, $cfg);
 
-		$sponsors = $srv->search($fields, $options);
-		$viewdata->offsetSet('sponsors', $sponsors);
-		return null;
-	}
+        $sponsors = $srv->search($fields, $options);
+        $viewdata->offsetSet('sponsors', $sponsors);
+        return null;
+    }
 
-	protected function getTemplateName() { return 'sponsorlist';}
-	protected function getViewClassName() { return 'tx_t3sponsors_views_SponsorList';}
+    protected function getTemplateName()
+    {
+        return 'sponsorlist';
+    }
+    protected function getViewClassName()
+    {
+        return 'tx_t3sponsors_views_SponsorList';
+    }
 }
-
