@@ -73,6 +73,7 @@ lib.t3sponsors.sponsor {
     show.disable = TEXT
     show.disable.if.isFalse.field = hasreport
     show.disable.value = 1
+    show._cfg.params.sponsor = uid
   }
   pagebrowser.limit = 20
   roll.value = 1

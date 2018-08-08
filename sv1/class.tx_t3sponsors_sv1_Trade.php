@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2015 Rene Nitzsche (rene@system25.de)
+*  (c) 2015-2018 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,6 +23,7 @@
 ***************************************************************/
 
 tx_rnbase::load('tx_rnbase_util_DB');
+tx_rnbase::load('Tx_Rnbase_Service_Base');
 
 
 /**
@@ -30,7 +31,7 @@ tx_rnbase::load('tx_rnbase_util_DB');
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_sv1_Trade extends t3lib_svbase {
+class tx_t3sponsors_sv1_Trade extends Tx_Rnbase_Service_Base{
 
 	/**
 	 * Search database for teams
@@ -46,7 +47,3 @@ class tx_t3sponsors_sv1_Trade extends t3lib_svbase {
 	}
 }
 
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Trade.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/t3sponsors/sv1/class.tx_t3sponsors_sv1_Trade.php']);
-}
