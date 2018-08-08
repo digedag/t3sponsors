@@ -4,14 +4,6 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 tx_rnbase::load('tx_rnbase_util_TYPO3');
 tx_rnbase::load('tx_rnbase_util_Extensions');
 
-if(!tx_rnbase_util_TYPO3::isTYPO62OrHigher()) {
-	// TCA registration for 4.5
-	$TCA['tx_t3sponsors_companies'] = require tx_rnbase_util_Extensions::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_companies.php';
-	$TCA['tx_t3sponsors_categories'] = require tx_rnbase_util_Extensions::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_categories.php';
-	$TCA['tx_t3sponsors_trades'] = require tx_rnbase_util_Extensions::extPath($_EXTKEY).'Configuration/TCA/tx_t3sponsors_trades.php';
-}
-
-
 
 ////////////////////////////////
 // Register plugin
@@ -34,6 +26,6 @@ if (TYPO3_MODE=='BE') {
 
 // Add static TS-config
 tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/Base/', 'T3 Sponsors');
-if(tx_rnbase_util_TYPO3::isTYPO60OrHigher())
-	tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/FAL/', 'T3 Sponsors (FAL support)');
+tx_rnbase_util_Extensions::addStaticFile($_EXTKEY,'Configuration/Typoscript/FAL/', 'T3 Sponsors (FAL support)');
+
 

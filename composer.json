@@ -1,0 +1,43 @@
+{
+	"name" : "digedag/t3sponsors",
+	"description" : "Simple TYPO3 extension with sponsors and categories.",
+	"type" : "typo3-cms-extension",
+	"keywords" : [
+		"TYPO3 CMS",
+		"mvc",
+		"catalog"
+	],
+	"homepage" : "http://www.system25.de/",
+	"license" : "GPL-2.0-or-later",
+	"authors" : [{
+			"name" : "René Nitzsche",
+			"email" : "rene@system25.de",
+			"role" : "Developer"
+		}
+	],
+	"support" : {
+		"email" : "rene@system25.de",
+		"source" : "https://github.com/digedag/t3sponsors",
+		"issues" : "https://github.com/digedag/t3sponsors/issues"
+	},
+	"replace" : {
+		"t3sponsors" : "self.version",
+		"typo3-ter/t3sponsors" : "self.version"
+	},
+	"require" : {
+		"typo3/cms-core" : ">=6.2.0 <=8.7.99",
+		"digedag/rn-base" : ">=1.8.0"
+	},
+	"autoload" : {
+		"classmap" : [
+			"actions/",
+			"filter/",
+			"marker/",
+			"models/",
+			"search/",
+			"sv1/",
+			"util/",
+			"views/"
+		]
+	}
+}
