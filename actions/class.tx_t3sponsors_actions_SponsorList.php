@@ -1,4 +1,7 @@
 <?php
+use Sys25\RnBase\Frontend\Controller\AbstractAction;
+use Sys25\RnBase\Frontend\Request\RequestInterface;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -31,19 +34,19 @@ tx_rnbase::load('tx_rnbase_util_TYPO3');
  * Controller to show a sponsor list
  *
  */
-class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC {
+class tx_t3sponsors_actions_SponsorList extends AbstractAction {
 
 	/**
 	 *
 	 *
-	 * @param array_object $parameters
-	 * @param tx_rnbase_configurations $configurations
-	 * @param array_object $viewData
+	 * @param RequestInterface $request
 	 * @return string error msg or null
 	 */
-	protected function handleRequest(&$parameters,&$configurations, &$viewdata){
+	protected function handleRequest(RequestInterface $request)
+	{
+        $configurations = $request->getConfigurations();
 		$srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
-		$filter = tx_rnbase_filter_BaseFilter::createFilter($parameters, $configurations, $viewdata, $this->getConfId(). 'sponsor.filter.');
+		$filter = tx_rnbase_filter_BaseFilter::createFilter($request->getParameters(), $configurations, $request->getViewContext(), $this->getConfId(). 'sponsor.filter.');
 		$fields = array();
 		$options = array();
 		$filter->init($fields, $options);
@@ -52,11 +55,11 @@ class tx_t3sponsors_actions_SponsorList extends tx_rnbase_action_BaseIOC {
 		$cfg = array();
 		$cfg['colname'] = 'name1';
 		$cfg['searchcallback'] = array($service, 'search');
-		tx_rnbase_filter_BaseFilter::handleCharBrowser($configurations, $this->getConfId().'sponsor.charbrowser', $viewdata, $fields, $options, $cfg);
-		tx_rnbase_filter_BaseFilter::handlePageBrowser($configurations, $this->getConfId().'sponsor.pagebrowser', $viewdata, $fields, $options, $cfg);
+		tx_rnbase_filter_BaseFilter::handleCharBrowser($configurations, $this->getConfId().'sponsor.charbrowser', $request->getViewContext(), $fields, $options, $cfg);
+		tx_rnbase_filter_BaseFilter::handlePageBrowser($configurations, $this->getConfId().'sponsor.pagebrowser', $request->getViewContext(), $fields, $options, $cfg);
 
 		$sponsors = $srv->search($fields, $options);
-		$viewdata->offsetSet('sponsors', $sponsors);
+		$request->getViewContext()->offsetSet('sponsors', $sponsors);
 		return null;
 	}
 

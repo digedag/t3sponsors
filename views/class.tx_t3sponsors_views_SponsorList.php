@@ -1,4 +1,7 @@
 <?php
+use Sys25\RnBase\Frontend\View\Marker\BaseView;
+use Sys25\RnBase\Frontend\Request\RequestInterface;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -29,9 +32,11 @@ tx_rnbase::load ( 'tx_rnbase_util_Templates' );
 /**
  * Viewklasse für die Darstellung einer Sponsorenliste
  */
-class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
+class tx_t3sponsors_views_SponsorList extends BaseView {
 
-	function createOutput($template, &$viewData, &$configurations, &$formatter) {
+	protected function createOutput($template, RequestInterface $request, $formatter)
+	{
+	    $viewData = $request->getViewContext();
 		$markerArray = array();
 		$subpartArray = array();
 		// Wir holen die Daten von der Action ab
@@ -40,15 +45,15 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 		if($filter->hideResult()) {
 			$subpartArray['###SPONSORS###'] = '';
 			$items = array();
-			$template = $filter->getMarker()->parseTemplate($template, $formatter, $this->getController()->getConfId().'sponsor.filter.', 'SPONSOR');
+			$template = $filter->getMarker()->parseTemplate($template, $formatter, $request->getConfId().'sponsor.filter.', 'SPONSOR');
 		}
 		else {
 			$listBuilder = tx_rnbase::makeInstance ( 'tx_rnbase_util_ListBuilder' );
-			$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $this->getController()->getConfId().'sponsor.', 'SPONSOR', $formatter );
+			$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor', $request->getConfId().'sponsor.', 'SPONSOR', $formatter );
 		}
 
 		if (tx_rnbase_util_BaseMarker::containsMarker ( $template, 'SPONSORMAP' )) {
-			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $configurations, $this->getController ()->getConfId () . 'sponsor._map.', 'SPONSOR' );
+			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $request->getConfigurations(), $request->getConfId() . 'sponsor._map.', 'SPONSOR' );
 		}
 		$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); //, $wrappedSubpartArray);
 
@@ -137,8 +142,3 @@ class tx_t3sponsors_views_SponsorList extends tx_rnbase_view_Base {
 		return '###SPONSORLIST###';
 	}
 }
-
-if (defined ( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS [TYPO3_MODE] ['XCLASS'] ['ext/t3sponsors/views/class.tx_t3sponsors_views_SponsorList.php']) {
-	include_once ($TYPO3_CONF_VARS [TYPO3_MODE] ['XCLASS'] ['ext/t3sponsors/views/class.tx_t3sponsors_views_SponsorList.php']);
-}
-?>
