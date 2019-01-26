@@ -32,33 +32,32 @@ tx_rnbase::load('tx_rnbase_util_Templates');
 /**
  * Viewklasse für die Darstellung einer Sponsorenliste
  */
-class tx_t3sponsors_views_SponsorList extends BaseView {
-
-	protected function createOutput($template, RequestInterface $request, $formatter)
-	{
-	    $viewData = $request->getViewContext();
-		$markerArray = array();
-		$subpartArray = array();
-		// Wir holen die Daten von der Action ab
-		$items = $viewData->offsetGet('sponsors');
-		$filter = $viewData->offsetGet('filter');
-		if($filter->hideResult()) {
-			$subpartArray['###SPONSORS###'] = '';
-			$items = array();
-			$template = $filter->getMarker()->parseTemplate($template, $formatter,
+class tx_t3sponsors_views_SponsorList extends BaseView
+{
+    protected function createOutput($template, RequestInterface $request, $formatter)
+    {
+        $viewData = $request->getViewContext();
+        $markerArray = array();
+        $subpartArray = array();
+        // Wir holen die Daten von der Action ab
+        $items = $viewData->offsetGet('sponsors');
+        $filter = $viewData->offsetGet('filter');
+        if ($filter->hideResult()) {
+            $subpartArray['###SPONSORS###'] = '';
+            $items = array();
+            $template = $filter->getMarker()->parseTemplate($template, $formatter,
                 $request->getConfId().'sponsor.filter.', 'SPONSOR');
-		}
-		else {
-			$listBuilder = tx_rnbase::makeInstance ( 'tx_rnbase_util_ListBuilder' );
-			$template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor',
-                $request->getConfId().'sponsor.', 'SPONSOR', $formatter );
-		}
+        } else {
+            $listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
+            $template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor',
+                $request->getConfId().'sponsor.', 'SPONSOR', $formatter);
+        }
 
-		if (tx_rnbase_util_BaseMarker::containsMarker ( $template, 'SPONSORMAP' )) {
-			$markerArray['###SPONSORMAP###'] = $this->getMap ( $items, $request->getConfigurations(),
-                $request->getConfId() . 'sponsor._map.', 'SPONSOR' );
-		}
-		$template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); // , $wrappedSubpartArray);
+        if (tx_rnbase_util_BaseMarker::containsMarker($template, 'SPONSORMAP')) {
+            $markerArray['###SPONSORMAP###'] = $this->getMap($items, $request->getConfigurations(),
+                $request->getConfId() . 'sponsor._map.', 'SPONSOR');
+        }
+        $template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); // , $wrappedSubpartArray);
         return $template;
     }
 
@@ -139,13 +138,13 @@ class tx_t3sponsors_views_SponsorList extends BaseView {
         }
     }
 
-	/**
-	 * Subpart der im HTML-Template geladen werden soll.
-	 * Dieser wird der Methode
-	 * createOutput automatisch als $template übergeben.
-	 *
-	 * @return string
-	 */
+    /**
+     * Subpart der im HTML-Template geladen werden soll.
+     * Dieser wird der Methode
+     * createOutput automatisch als $template übergeben.
+     *
+     * @return string
+     */
     protected function getMainSubpart(ContextInterface $viewData)
     {
         return '###SPONSORLIST###';

@@ -34,7 +34,8 @@ tx_rnbase::load('tx_rnbase_util_TYPO3');
  * Controller to show a sponsor list
  *
  */
-class tx_t3sponsors_actions_SponsorList extends AbstractAction {
+class tx_t3sponsors_actions_SponsorList extends AbstractAction
+{
 
     /**
      *
