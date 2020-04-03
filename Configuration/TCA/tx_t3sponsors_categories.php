@@ -31,24 +31,28 @@ $t3s_categories = array(
         'columns' => array(
                 'hidden' => array(
                         'exclude' => 1,
-                        'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
-                        'config'  => array(
-                                'type'    => 'check',
-                                'default' => '0'
-                        )
+                        'label'   => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+                        'config'  => [
+                            'type'    => 'check',
+                            'default' => '0'
+                        ]
                 ),
                 'sys_language_uid' => array(
                         'exclude' => 1,
-                        'label'  => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
-                        'config' => array(
-                                'type'                => 'select',
-                                'foreign_table'       => 'sys_language',
-                                'foreign_table_where' => 'ORDER BY sys_language.title',
-                                'items' => array(
-                                        array('LLL:EXT:lang/locallang_general.xml:LGL.allLanguages', -1),
-                                        array('LLL:EXT:lang/locallang_general.xml:LGL.default_value', 0)
-                                )
-                        )
+                        'label'  => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+                        'config' => [
+                            'type' => 'select',
+                            'renderType' => 'selectSingle',
+                            'special' => 'languages',
+                            'items' => [
+                                [
+                                    'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                                    -1,
+                                    'flags-multiple'
+                                ],
+                            ],
+                            'default' => 0,
+                        ]
                 ),
                 'l18n_parent' => array(
                         'displayCond' => 'FIELD:sys_language_uid:>:0',

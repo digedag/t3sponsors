@@ -193,8 +193,8 @@ plugin.tx_t3sponsors {
         selected.if.equals = 1
       }
 
-      options.orderby.SPONSOR.NAME1 = asc
       options.distinct = 1
+#      options.orderby.SPONSOR.NAME1 = asc
 #      options.orderby.RAND = 1
 #      options.limit = 1
 #      options.debug = 1
