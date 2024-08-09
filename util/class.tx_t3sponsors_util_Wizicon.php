@@ -34,7 +34,7 @@ class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon
     {
         $plugins = [];
         $plugins['tx_t3sponsors'] = [
-            'icon' => tx_rnbase_util_Extensions::extRelPath('t3sponsors') . '/ext_icon.gif',
+            'icon' => 'EXT:t3sponsors/ext_icon.gif',
             'title' => 'plugin.t3sponsors.label',
             'description' => 'plugin.t3sponsors.description'
         ];
