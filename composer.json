@@ -38,5 +38,12 @@
 			"util/",
 			"views/"
 		]
-	}
+	},
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "extension-key": "t3sponsors",
+            "web-dir": ".Build/Web"
+      }
+    }
 }
