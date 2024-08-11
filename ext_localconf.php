@@ -3,6 +3,8 @@ if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
     exit('Access denied.');
 }
 
+$_EXTKEY = 't3sponsors';
+
 
 \Sys25\RnBase\Utility\Extensions::addService($_EXTKEY, 't3sponsors' /* sv type */, 'tx_t3sponsors_sv1_Sponsor' /* sv key */,
     [
