@@ -1,9 +1,7 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
+if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
+    exit('Access denied.');
 }
-
-tx_rnbase::load('tx_rnbase_util_Extensions');
 
 $t3s_trades = array(
         'ctrl' => array(
@@ -111,34 +109,10 @@ $t3s_trades = array(
         )
 );
 
-if (tx_rnbase_util_TYPO3::isTYPO60OrHigher()) {
-    tx_rnbase::load('tx_rnbase_util_TSFAL');
-    $t3s_trades['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
-            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
-            'config' => array('size' => 1, 'maxitems' => 1),
-    ));
-} elseif (tx_rnbase_util_TYPO3::isExtLoaded('dam')) {
-    tx_rnbase::load('tx_rnbase_util_TSDAM');
-    $t3s_trades['columns']['logo'] = tx_rnbase_util_TSDAM::getMediaTCA('logo');
-    $t3s_trades['columns']['logo']['label'] = 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo';
-    $t3s_trades['columns']['logo']['config']['size'] = 1;
-    $t3s_trades['columns']['logo']['config']['maxitems'] = 1;
-} else {
-    $t3s_trades['columns']['t3logo'] = array(
-            'exclude' => 0,
-            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
-            'config' => array(
-                    'type' => 'group',
-                    'internal_type' => 'file',
-                    'allowed' => 'gif,png,jpeg,jpg',
-                    'max_size' => 700,
-                    'uploadfolder' => 'uploads/tx_t3sponsors',
-                    'show_thumbs' => 1,
-                    'size' => 1,
-                    'minitems' => 0,
-                    'maxitems' => 1,
-            )
-    );
-}
+tx_rnbase::load('tx_rnbase_util_TSFAL');
+$t3s_trades['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
+        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
+        'config' => array('size' => 1, 'maxitems' => 1),
+));
 
 return $t3s_trades;

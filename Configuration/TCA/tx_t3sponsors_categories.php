@@ -1,9 +1,8 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
+if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
+    exit('Access denied.');
 }
 
-tx_rnbase::load('tx_rnbase_util_Extensions');
 
 $t3s_categories = array(
         'ctrl' => array(
