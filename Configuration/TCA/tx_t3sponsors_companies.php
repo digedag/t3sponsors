@@ -20,7 +20,7 @@ $t3s_companies = array(
             'enablecolumns' => array(
                 'disabled' => 'hidden',
             ),
-            'iconfile'          => 'EXT:t3sponsors/ext_icon.gif',
+            'iconfile'          => 'EXT:t3sponsors/Resources/Public/Icons/ext_icon.gif',
         ),
         'interface' => array(
                 'showRecordFieldList' => 'hidden,name1,name2'
