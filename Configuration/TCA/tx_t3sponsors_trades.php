@@ -5,7 +5,7 @@ if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
 
 $t3s_trades = array(
         'ctrl' => array(
-            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_trades',
+            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_trades',
             'label' => 'name',
             'searchFields' => 'uid,name,description',
             'tstamp'    => 'tstamp',
@@ -68,7 +68,7 @@ $t3s_trades = array(
                 ),
                 'name' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_trades.name',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_trades.name',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -77,7 +77,7 @@ $t3s_trades = array(
                 ),
                 'description' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_trades.description',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_trades.description',
                         'config' => array(
                                 'type' => 'text',
                                 'cols' => '30',
@@ -86,7 +86,7 @@ $t3s_trades = array(
                 ),
                 'sponsors' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies',
                         'config' => array(
                                 'type' => 'select',
                                 'foreign_table' => 'tx_t3sponsors_companies',
@@ -111,7 +111,7 @@ $t3s_trades = array(
 
 tx_rnbase::load('tx_rnbase_util_TSFAL');
 $t3s_trades['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
-        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
+        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo',
         'config' => array('size' => 1, 'maxitems' => 1),
 ));
 

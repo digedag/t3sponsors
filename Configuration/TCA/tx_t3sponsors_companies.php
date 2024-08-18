@@ -5,7 +5,7 @@ if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
 
 $t3s_companies = array(
         'ctrl' => array(
-            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies',
+            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies',
             'label' => 'name1',
             'searchFields' => 'uid,name1,name2,address,city,zip,email,tags,contactlastname',
             'tstamp'    => 'tstamp',
@@ -70,7 +70,7 @@ $t3s_companies = array(
                 ),
                 'name1' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.name1',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.name1',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -79,7 +79,7 @@ $t3s_companies = array(
                 ),
                 'name2' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.name2',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.name2',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -88,7 +88,7 @@ $t3s_companies = array(
                 ),
                 'address' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.address',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.address',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -97,7 +97,7 @@ $t3s_companies = array(
                 ),
                 'zip' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.zip',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.zip',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -106,7 +106,7 @@ $t3s_companies = array(
                 ),
                 'city' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.city',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.city',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -115,7 +115,7 @@ $t3s_companies = array(
                 ),
                 'countrycode' => array(
                     'exclude' => 1,
-                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_countrycode',
+                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_countrycode',
                     'config' => array(
                         'type' => 'input',
                         'size' => '10',
@@ -125,7 +125,7 @@ $t3s_companies = array(
                 ),
                 'lng' => array(
                     'exclude' => 1,
-                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_lng',
+                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_lng',
                     'config' => array(
                         'type' => 'input',
                         'size' => '20',
@@ -135,7 +135,7 @@ $t3s_companies = array(
                 ),
                 'lat' => array(
                     'exclude' => 1,
-                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_lat',
+                    'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_lat',
                     'config' => array(
                         'type' => 'input',
                         'size' => '20',
@@ -145,7 +145,7 @@ $t3s_companies = array(
                 ),
                 'www' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.www',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.www',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -154,7 +154,7 @@ $t3s_companies = array(
                 ),
                 'email' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.email',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.email',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -163,7 +163,7 @@ $t3s_companies = array(
                 ),
                 'phone' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.phone',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.phone',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -172,7 +172,7 @@ $t3s_companies = array(
                 ),
                 'fax' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.fax',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.fax',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -181,7 +181,7 @@ $t3s_companies = array(
                 ),
                 'mobile' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.mobile',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.mobile',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -190,7 +190,7 @@ $t3s_companies = array(
                 ),
                 'contactfirstname' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_contactfirstname',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_contactfirstname',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -199,7 +199,7 @@ $t3s_companies = array(
                 ),
                 'contactlastname' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_contactlastname',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_contactlastname',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -208,7 +208,7 @@ $t3s_companies = array(
                 ),
                 'hasreport' => array(
                         'exclude' => 1,
-                        'label'   => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.hasreport',
+                        'label'   => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.hasreport',
                         'config'  => array(
                                 'type'    => 'check',
                                 'default' => '0'
@@ -216,7 +216,7 @@ $t3s_companies = array(
                 ),
                 'openingtime' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.openingtime',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.openingtime',
                         'config' => array(
                                 'type' => 'text',
                                 'cols' => '30',
@@ -225,7 +225,7 @@ $t3s_companies = array(
                 ),
                 'description' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.description',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.description',
                         'config' => array(
                                 'type' => 'text',
                                 'cols' => '30',
@@ -234,7 +234,7 @@ $t3s_companies = array(
                 ),
                 'tags' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_tags',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_tags',
                         'config' => array(
                                 'type' => 'input',
                                 'max' => '4096',
@@ -244,7 +244,7 @@ $t3s_companies = array(
                 ),
                 'categories' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_categories',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_categories',
                         'config' => array(
                                 'type' => 'select',
                                 'size' => 20,
@@ -263,7 +263,7 @@ $t3s_companies = array(
                 ),
                 'trades' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_trades',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_trades',
                         'config' => array(
                                 'type' => 'select',
                                 'size' => 20,
@@ -283,7 +283,7 @@ $t3s_companies = array(
         ),
         'types' => array(
                 '0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l18n_parent, l18n_diffsource,hidden;;1;;1-1-1,name1,name2,description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],categories,trades,damlogo,logo,dampictures,pictures,comment,tags,hasreport,
-		--div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],www,email,phone,fax,mobile')
+		--div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],www,email,phone,fax,mobile')
         ),
         'palettes' => array(
                 '1' => array('showitem' => '')
@@ -291,7 +291,7 @@ $t3s_companies = array(
 );
 
 $t3s_companies['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
-        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
+        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo',
         'config' => array('size' => 1, 'maxitems' => 1),
 ));
 $t3s_companies['columns']['pictures'] = tx_rnbase_util_TSFAL::getMediaTCA('pictures');
