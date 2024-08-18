@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" data="2024-08-18T17-14-11" product-name="zsb">
+		<header/>
+		<body>
+			<trans-unit id="common_debugSQL" xml:space="preserve">
+				<source>Debug</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.label" xml:space="preserve">
+				<source>T3 Sponsors</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.tab.common" xml:space="preserve">
+				<source>Common</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.tab.tssetup" xml:space="preserve">
+				<source>TS-Setup</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.tssetup" xml:space="preserve">
+				<source>plugin.tx_t3sponsors.</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.tab.SponsorList" xml:space="preserve">
+				<source>List of sponsors</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.action" xml:space="preserve">
+				<source>View</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.action.SponsorList" xml:space="preserve">
+				<source>List of sponsors</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.action.SponsorShow" xml:space="preserve">
+				<source>Sponsor single view</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.template" xml:space="preserve">
+				<source>HTML-Template</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.enableCharbrowser" xml:space="preserve">
+				<source>Enable Character Browser</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.categories" xml:space="preserve">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.trades" xml:space="preserve">
+				<source>Trades</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.sponsors" xml:space="preserve">
+				<source>Sponsors</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.sponsors.rand" xml:space="preserve">
+				<source>Randomize sorting</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.sponsors.limit" xml:space="preserve">
+				<source>Limit list size</source>
+			</trans-unit>
+			<trans-unit id="plugin.t3sponsors.flexform.sponsors.singlepid" xml:space="preserve">
+				<source>Detailspage</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies" xml:space="preserve">
+				<source>Sponsor</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_tabcontact" xml:space="preserve">
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.name1" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.name2" xml:space="preserve">
+				<source>More name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.openingtime" xml:space="preserve">
+				<source>Opening times</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.comment" xml:space="preserve">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.logo" xml:space="preserve">
+				<source>Logo</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.pictures" xml:space="preserve">
+				<source>Pictures</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.www" xml:space="preserve">
+				<source>Web</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.email" xml:space="preserve">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.phone" xml:space="preserve">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.fax" xml:space="preserve">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.mobile" xml:space="preserve">
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_contactfirstname" xml:space="preserve">
+				<source>Firstname contact person</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_contactlastname" xml:space="preserve">
+				<source>Lastname contact person</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_tags" xml:space="preserve">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.address" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.zip" xml:space="preserve">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.city" xml:space="preserve">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_countrycode" xml:space="preserve">
+				<source>Country Code</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_lng" xml:space="preserve">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies_lat" xml:space="preserve">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.categories" xml:space="preserve">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_companies.hasreport" xml:space="preserve">
+				<source>Enable link to details page</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_categories" xml:space="preserve">
+				<source>Category of sponsor</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_categories.name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_categories.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_trades" xml:space="preserve">
+				<source>Kind of industry</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_trades.name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_t3sponsors_trades.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

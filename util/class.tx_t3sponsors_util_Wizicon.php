@@ -2,7 +2,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2009-2017 Rene Nitzsche (rene[@]system25.de)
+ *  (c) 2009-2024 Rene Nitzsche (rene[@]system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,14 +21,16 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_Wizicon');
+
+use Sys25\RnBase\Utility\Extensions;
+use Sys25\RnBase\Utility\WizIcon;
 
 /**
  * Class that adds the wizard icon.
  *
  * @author René Nitzsche <rene[@]system25.de>
  */
-class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon
+class tx_t3sponsors_util_Wizicon extends WizIcon
 {
     protected function getPluginData()
     {
@@ -43,6 +45,6 @@ class tx_t3sponsors_util_Wizicon extends tx_rnbase_util_Wizicon
 
     protected function getLLFile()
     {
-        return tx_rnbase_util_Extensions::extPath('t3sponsors') . 'Resources/Private/Language/locallang_db.xml';
+        return Extensions::extPath('t3sponsors') . 'Resources/Private/Language/locallang_db.xlf';
     }
 }

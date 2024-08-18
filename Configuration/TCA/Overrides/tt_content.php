@@ -23,7 +23,7 @@ call_user_func(function () {
     );
     \Sys25\RnBase\Utility\Extensions::addPlugin(
         [
-            'LLL:EXT:'.$extKey.'/Resources/Private/Language/locallang_db.php:plugin.t3sponsors.label',
+            'LLL:EXT:'.$extKey.'/Resources/Private/Language/locallang_db.xlf:plugin.t3sponsors.label',
             'tx_t3sponsors'
         ],
         'list_type',

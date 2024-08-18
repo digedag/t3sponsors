@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" data="2024-08-18T17-13-12" product-name="zsb">
+		<header/>
+		<body>
+			<trans-unit id="error" xml:space="preserve">
+				<source>Error</source>
+			</trans-unit>
+			<trans-unit id="label_foundsponsors" xml:space="preserve">
+				<source>Number of sponsors found:</source>
+			</trans-unit>
+			<trans-unit id="label_sponsor" xml:space="preserve">
+				<source>Sponsor</source>
+			</trans-unit>
+			<trans-unit id="label_categories" xml:space="preserve">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="label_category" xml:space="preserve">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="label_contact" xml:space="preserve">
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="label_page" xml:space="preserve">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="label_description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label_pictures" xml:space="preserve">
+				<source>Pictures</source>
+			</trans-unit>
+			<trans-unit id="label_mapnotavailable" xml:space="preserve">
+				<source>Map not available</source>
+			</trans-unit>
+			<trans-unit id="label_trade" xml:space="preserve">
+				<source>Trade</source>
+			</trans-unit>
+			<trans-unit id="label_trades" xml:space="preserve">
+				<source>Trades</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -6,7 +6,7 @@ if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
 
 $t3s_categories = array(
         'ctrl' => array(
-            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_categories',
+            'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_categories',
             'label' => 'name',
             'searchFields' => 'uid,name,description',
             'tstamp'    => 'tstamp',
@@ -73,7 +73,7 @@ $t3s_categories = array(
                 ),
                 'name' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_categories.name',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_categories.name',
                         'config' => array(
                                 'type' => 'input',
                                 'size' => '30',
@@ -82,7 +82,7 @@ $t3s_categories = array(
                 ),
                 'description' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_categories.description',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_categories.description',
                         'config' => array(
                                 'type' => 'text',
                                 'cols' => '30',
@@ -91,7 +91,7 @@ $t3s_categories = array(
                 ),
                 'sponsors' => array(
                         'exclude' => 1,
-                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies',
+                        'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies',
                         'config' => array(
                                 'type' => 'select',
                                 'foreign_table' => 'tx_t3sponsors_companies',
@@ -117,19 +117,19 @@ $t3s_categories = array(
 if (tx_rnbase_util_TYPO3::isTYPO60OrHigher()) {
     tx_rnbase::load('tx_rnbase_util_TSFAL');
     $t3s_categories['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
-            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
+            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo',
             'config' => array('size' => 1, 'maxitems' => 1),
     ));
 } elseif (tx_rnbase_util_Extensions::isLoaded('dam')) {
     tx_rnbase::load('tx_rnbase_util_TSDAM');
     $t3s_categories['columns']['damlogo'] = tx_rnbase_util_TSDAM::getMediaTCA('logo');
-    $t3s_categories['columns']['damlogo']['label'] = 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo';
+    $t3s_categories['columns']['damlogo']['label'] = 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo';
     $t3s_categories['columns']['damlogo']['config']['size'] = 1;
     $t3s_categories['columns']['damlogo']['config']['maxitems'] = 1;
 } else {
     $t3s_categories['columns']['logo'] = array(
             'exclude' => 0,
-            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xml:tx_t3sponsors_companies.logo',
+            'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo',
             'config' => array(
                     'type' => 'group',
                     'internal_type' => 'file',
