@@ -1,8 +1,13 @@
 <?php
+
+namespace System25\T3sponsors\Model;
+
+use Sys25\RnBase\Domain\Model\BaseModel;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2007-2018 Rene Nitzsche (rene@system25.de)
+ *  (c) 2007-2024 Rene Nitzsche (rene@system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,41 +26,14 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_Misc');
 
 /**
- * Access a service instance
+ * Model für eine Kategorie.
  */
-class tx_t3sponsors_util_ServiceRegistry
+class Category extends BaseModel
 {
-
-    /**
-     * Liefert den Profile-Service
-     *
-     * @return tx_t3sponsors_sv1_Sponsor
-     */
-    public static function getSponsorService()
+    public function getTableName()
     {
-        return tx_rnbase_util_Misc::getService('t3sponsors', 'sponsor');
-    }
-
-    /**
-     * Liefert den Category-Service
-     *
-     * @return tx_t3sponsors_sv1_Category
-     */
-    public static function getCategoryService()
-    {
-        return tx_rnbase_util_Misc::getService('t3sponsors', 'category');
-    }
-
-    /**
-     * Liefert den Trade-Service
-     *
-     * @return tx_t3sponsors_sv1_Trade
-     */
-    public static function getTradeService()
-    {
-        return tx_rnbase_util_Misc::getService('t3sponsors', 'trade');
+        return 'tx_t3sponsors_categories';
     }
 }

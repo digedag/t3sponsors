@@ -1,8 +1,11 @@
 <?php
+
+namespace System25\T3sponsors\Frontend\Marker;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2007-2018 Rene Nitzsche (rene@system25.de)
+ *  (c) 2007-2024 Rene Nitzsche (rene@system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,13 +24,19 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_BaseMarker');
-tx_rnbase::load('tx_rnbase_util_Templates');
+
+use Sys25\RnBase\Domain\Repository\RepositoryRegistry;
+use Sys25\RnBase\Frontend\Marker\BaseMarker;
+use Sys25\RnBase\Frontend\Marker\ListBuilder;
+use Sys25\RnBase\Frontend\Marker\Templates;
+use Sys25\RnBase\Search\SearchBase;
+use System25\T3sponsors\Model\Sponsor;
+use tx_rnbase;
 
 /**
  * Renders categories
  */
-class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker
+class CategoryMarker extends BaseMarker
 {
 
     /**
@@ -56,12 +65,14 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker
 
         // Es wird das MarkerArray gefüllt.
         $markerArray = $formatter->getItemMarkerArrayWrapped($item->getProperty(), $confId, 0, $marker . '_', $item->getColumnNames());
+        $subpartArray = [];
+        $wrappedSubpartArray = [];
 
         if (self::containsMarker($template, $marker . '_SPONSORS')) {
             $template = $this->_addSponsors($template, $item, $formatter, $confId . 'sponsor.', $marker . '_SPONSOR');
         }
 
-        $out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
+        $out = Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
         return $out;
     }
 
@@ -76,14 +87,15 @@ class tx_t3sponsors_marker_Category extends tx_rnbase_util_BaseMarker
      */
     protected function _addSponsors($template, &$item, &$formatter, $confId, $markerPrefix)
     {
-        $srv = tx_t3sponsors_util_ServiceRegistry::getSponsorService();
+        $repo = RepositoryRegistry::getRepositoryForClass(Sponsor::class);
         $fields['CATMM.UID_LOCAL'][OP_EQ_INT] = $item->getUid();
         $options = array();
-        tx_rnbase_util_SearchBase::setConfigFields($fields, $formatter->getConfigurations(), $confId . 'fields.');
-        tx_rnbase_util_SearchBase::setConfigOptions($options, $formatter->getConfigurations(), $confId . 'options.');
-        $children = $srv->search($fields, $options);
-        $listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
-        $out = $listBuilder->render($children, false, $template, 'tx_t3sponsors_marker_Sponsor', $confId, $markerPrefix, $formatter);
+        SearchBase::setConfigFields($fields, $formatter->getConfigurations(), $confId . 'fields.');
+        SearchBase::setConfigOptions($options, $formatter->getConfigurations(), $confId . 'options.');
+        $children = $repo->search($fields, $options);
+        $listBuilder = tx_rnbase::makeInstance(ListBuilder::class);
+        $out = $listBuilder->render($children, false, $template, SponsorMarker::class, $confId, $markerPrefix, $formatter);
+
         return $out;
     }
 }

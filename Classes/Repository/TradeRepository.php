@@ -1,8 +1,14 @@
 <?php
+
+namespace System25\T3sponsors\Repository;
+
+use Sys25\RnBase\Domain\Repository\PersistenceRepository;
+use System25\T3sponsors\Search\TradeSearch;
+
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2015-2018 Rene Nitzsche (rene@system25.de)
+*  (c) 2015-2024 Rene Nitzsche (rene@system25.de)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,8 +28,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-tx_rnbase::load('tx_rnbase_util_DB');
-tx_rnbase::load('Tx_Rnbase_Service_Base');
 
 
 /**
@@ -31,20 +35,10 @@ tx_rnbase::load('Tx_Rnbase_Service_Base');
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_sv1_Trade extends Tx_Rnbase_Service_Base
+class TradeRepository extends PersistenceRepository
 {
-
-    /**
-     * Search database for teams
-     *
-     * @param array $fields
-     * @param array $options
-     * @return array[tx_t3sponsors_models_Category]
-     */
-    public function search($fields, $options)
+    public function getSearchClass()
     {
-        tx_rnbase::load('tx_rnbase_util_SearchBase');
-        $searcher = tx_rnbase_util_SearchBase::getInstance('tx_t3sponsors_search_Trade');
-        return $searcher->search($fields, $options);
+        return TradeSearch::class;
     }
 }

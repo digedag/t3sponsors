@@ -1,8 +1,15 @@
 <?php
+
+namespace System25\T3sponsors\Search;
+
+use Sys25\RnBase\Database\Query\Join;
+use Sys25\RnBase\Search\SearchBase;
+use System25\T3sponsors\Model\Category;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2009-2018 Rene Nitzsche
+ *  (c) 2009-2024 Rene Nitzsche
  *  Contact: rene@system25.de
  *  All rights reserved
  *
@@ -20,22 +27,26 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_SearchBase');
 
 /**
  * Class to search categories from database
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_search_Category extends tx_rnbase_util_SearchBase
+class CategorySearch extends SearchBase
 {
     protected function getTableMappings()
     {
         $tableMapping = [];
         $tableMapping['SPONSOR'] = 'tx_t3sponsors_companies';
         $tableMapping['CATMM'] = 'tx_t3sponsors_categories_mm';
-        $tableMapping['CAT'] = 'tx_t3sponsors_categories';
+        $tableMapping[$this->getBaseTableAlias()] = $this->getBaseTable();
         return $tableMapping;
+    }
+
+    protected function getBaseTableAlias()
+    {
+        return 'CAT';
     }
 
     protected function getBaseTable()
@@ -45,17 +56,17 @@ class tx_t3sponsors_search_Category extends tx_rnbase_util_SearchBase
 
     public function getWrapperClass()
     {
-        return 'tx_t3sponsors_models_Category';
+        return Category::class;
     }
 
     protected function getJoins($tableAliases)
     {
-        $join = '';
+        $join = [];
         if (isset($tableAliases['CATMM']) || isset($tableAliases['SPONSOR'])) {
-            $join .= ' JOIN tx_t3sponsors_categories_mm ON tx_t3sponsors_categories.uid = tx_t3sponsors_categories_mm.uid_local';
+            $join[] = new Join('CAT', 'tx_t3sponsors_categories_mm', 'CAT.uid = CATMM.uid_local', 'CATMM');
         }
         if (isset($tableAliases['SPONSOR'])) {
-            $join .= ' JOIN tx_t3sponsors_companies ON tx_t3sponsors_companies.uid = tx_t3sponsors_categories_mm.uid_foreign';
+            $join[] = new Join('CATMM', 'tx_t3sponsors_companies', 'SPONSOR.uid = CATMM.uid_foreign', 'SPONSOR');
         }
         return $join;
     }

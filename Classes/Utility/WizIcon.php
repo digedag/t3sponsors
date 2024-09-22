@@ -1,8 +1,11 @@
 <?php
+
+namespace System25\T3sponsors\Utility;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2015-2018 Rene Nitzsche (rene@system25.de)
+ *  (c) 2009-2024 Rene Nitzsche (rene[@]system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,15 +25,29 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-tx_rnbase::load('tx_rnbase_util_DB');
-tx_rnbase::load('Tx_Rnbase_Domain_Model_Base');
+use Sys25\RnBase\Utility\Extensions;
+use Sys25\RnBase\Utility\WizIcon as BaseWizIcon;
 
 /**
+ * Class that adds the wizard icon.
+ *
+ * @author René Nitzsche <rene[@]system25.de>
  */
-class tx_t3sponsors_models_Trade extends Tx_Rnbase_Domain_Model_Base
+class WizIcon extends BaseWizIcon
 {
-    public function getTableName()
+    protected function getPluginData()
     {
-        return 'tx_t3sponsors_trades';
+        $plugins = [];
+        $plugins['tx_t3sponsors'] = [
+            'icon' => 'EXT:t3sponsors/ext_icon.gif',
+            'title' => 'plugin.t3sponsors.label',
+            'description' => 'plugin.t3sponsors.description'
+        ];
+        return $plugins;
+    }
+
+    protected function getLLFile()
+    {
+        return Extensions::extPath('t3sponsors') . 'Resources/Private/Language/locallang_db.xlf';
     }
 }
