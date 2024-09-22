@@ -1,8 +1,13 @@
 <?php
+
+namespace System25\T3sponsors\Model;
+
+use Sys25\RnBase\Domain\Model\BaseModel;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2007-2018 Rene Nitzsche (rene@system25.de)
+ *  (c) 2015-2024 Rene Nitzsche (rene@system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,16 +26,14 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_DB');
-tx_rnbase::load('Tx_Rnbase_Domain_Model_Base');
+
 
 /**
- * Model für eine Kategorie.
  */
-class tx_t3sponsors_models_Category extends Tx_Rnbase_Domain_Model_Base
+class Trade extends BaseModel
 {
     public function getTableName()
     {
-        return 'tx_t3sponsors_categories';
+        return 'tx_t3sponsors_trades';
     }
 }

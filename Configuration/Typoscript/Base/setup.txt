@@ -172,7 +172,7 @@ plugin.tx_t3sponsors {
   sponsorlist.sponsor =< lib.t3sponsors.sponsor
   sponsorlist.sponsor {
     filter {
-      class = tx_t3sponsors_filter_Form
+      class = System25\T3sponsors\Frontend\Filter\FormFilter
       template = EXT:t3sponsors/templates/sponsorlist.html
       subpart = ###SEARCH_FORM###
       # Soll die Ergebnisliste initial ausgeblendet werden

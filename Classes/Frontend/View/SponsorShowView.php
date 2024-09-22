@@ -1,8 +1,11 @@
 <?php
+
+namespace System25\T3sponsors\Frontend\View;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2007-2018 Rene Nitzsche (rene@system25.de)
+ *  (c) 2007-2024 Rene Nitzsche (rene@system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,30 +24,37 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_view_Base');
-tx_rnbase::load('tx_rnbase_util_BaseMarker');
-tx_rnbase::load('tx_rnbase_util_Templates');
+
+use Sys25\RnBase\Frontend\Marker\BaseMarker;
+use Sys25\RnBase\Frontend\Marker\Templates;
+use Sys25\RnBase\Frontend\Request\RequestInterface;
+use Sys25\RnBase\Frontend\View\ContextInterface;
+use Sys25\RnBase\Frontend\View\Marker\BaseView;
+use System25\T3sponsors\Frontend\Marker\SponsorMarker;
+use tx_rnbase;
 
 /**
  * View class for sponsor details
  */
-class tx_t3sponsors_views_SponsorShow extends tx_rnbase_view_Base
+class SponsorShowView extends BaseView
 {
-    public function createOutput($template, &$viewData, &$configurations, &$formatter)
+//    public function createOutput($template, &$viewData, &$configurations, &$formatter)
+    protected function createOutput($template, RequestInterface $request, $formatter)
     {
+        $viewData = $request->getViewContext();
         // Wir holen die Daten von der Action ab
         $sponsor = $viewData->offsetGet('sponsor');
-        $marker = tx_rnbase::makeInstance('tx_t3sponsors_marker_Sponsor');
+        $marker = tx_rnbase::makeInstance(SponsorMarker::class);
 
         $template = $marker->parseTemplate($template, $sponsor, $formatter, 'sponsorshow.sponsor.', 'SPONSOR');
 
         $markerArray = $subpartArray = $wrappedSubpartArray = [];
         $params = [];
-        $params['confid'] = $this->getController()->getConfId();
+        $params['confid'] = $request->getConfId();
         $params['marker'] = $marker;
         $params['sponsor'] = $sponsor;
-        tx_rnbase_util_BaseMarker::callModules($template, $markerArray, $subpartArray, $wrappedSubpartArray, $params, $formatter);
-        $out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
+        BaseMarker::callModules($template, $markerArray, $subpartArray, $wrappedSubpartArray, $params, $formatter);
+        $out = Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray, $wrappedSubpartArray);
 
         return $out;
     }
@@ -56,7 +66,7 @@ class tx_t3sponsors_views_SponsorShow extends tx_rnbase_view_Base
      *
      * @return string
      */
-    public function getMainSubpart(&$viewData)
+    public function getMainSubpart(ContextInterface $viewData)
     {
         return '###SPONSORDETAILS###';
     }

@@ -1,7 +1,21 @@
 <?php
+
+namespace System25\T3sponsors\Frontend\View;
+
+use Exception;
+use Sys25\RnBase\Frontend\Marker\BaseMarker;
+use Sys25\RnBase\Frontend\Marker\ListBuilder;
+use Sys25\RnBase\Frontend\Marker\Templates;
 use Sys25\RnBase\Frontend\View\Marker\BaseView;
 use Sys25\RnBase\Frontend\Request\RequestInterface;
 use Sys25\RnBase\Frontend\View\ContextInterface;
+use Sys25\RnBase\Maps\Coord;
+use Sys25\RnBase\Maps\DefaultMarker;
+use Sys25\RnBase\Maps\Factory;
+use Sys25\RnBase\Maps\Google\Icon;
+use Sys25\RnBase\Maps\MapUtility;
+use System25\T3sponsors\Frontend\Marker\SponsorMarker;
+use tx_rnbase;
 
 /***************************************************************
  *  Copyright notice
@@ -25,14 +39,11 @@ use Sys25\RnBase\Frontend\View\ContextInterface;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_view_Base');
-tx_rnbase::load('tx_rnbase_util_BaseMarker');
-tx_rnbase::load('tx_rnbase_util_Templates');
 
 /**
  * Viewklasse für die Darstellung einer Sponsorenliste
  */
-class tx_t3sponsors_views_SponsorList extends BaseView
+class SponsorListView extends BaseView
 {
     protected function createOutput($template, RequestInterface $request, $formatter)
     {
@@ -48,35 +59,32 @@ class tx_t3sponsors_views_SponsorList extends BaseView
             $template = $filter->getMarker()->parseTemplate($template, $formatter,
                 $request->getConfId().'sponsor.filter.', 'SPONSOR');
         } else {
-            $listBuilder = tx_rnbase::makeInstance('tx_rnbase_util_ListBuilder');
-            $template = $listBuilder->render($items, $viewData, $template, 'tx_t3sponsors_marker_Sponsor',
+            $listBuilder = tx_rnbase::makeInstance(ListBuilder::class);
+            $template = $listBuilder->render($items, $viewData, $template, SponsorMarker::class,
                 $request->getConfId().'sponsor.', 'SPONSOR', $formatter);
         }
 
-        if (tx_rnbase_util_BaseMarker::containsMarker($template, 'SPONSORMAP')) {
+        if (BaseMarker::containsMarker($template, 'SPONSORMAP')) {
             $markerArray['###SPONSORMAP###'] = $this->getMap($items, $request->getConfigurations(),
                 $request->getConfId() . 'sponsor._map.', 'SPONSOR');
         }
-        $template = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); // , $wrappedSubpartArray);
+        $template = Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray); // , $wrappedSubpartArray);
         return $template;
     }
 
     private function getMap($items, $configurations, $confId, $markerPrefix)
     {
-        tx_rnbase::load('tx_rnbase_maps_Factory');
         $ret = '###LABEL_mapNotAvailable###';
         try {
-            $map = tx_rnbase_maps_Factory::createGoogleMap($configurations, $confId);
+            $map = Factory::createGoogleMap($configurations, $confId);
             tx_rnbase::load('tx_rnbase_maps_Util');
-            $template = tx_rnbase_maps_Util::getMapTemplate($configurations, $confId);
+            $template = MapUtility::getMapTemplate($configurations, $confId);
             if (! $template) {
                 return 'MAP TEMPLATE NOT FOUND';
             }
-            $itemMarker = tx_rnbase::makeInstance('tx_t3sponsors_marker_Sponsor');
-            tx_rnbase::load('tx_rnbase_maps_google_Icon');
-            tx_rnbase::load('tx_rnbase_maps_DefaultMarker');
+            $itemMarker = tx_rnbase::makeInstance(SponsorMarker::class);
             foreach ($items as $item) {
-                $bubble = tx_rnbase_maps_Util::createMapBubble($item);
+                $bubble = MapUtility::createMapBubble($item);
                 if (! $bubble) {
                     continue;
                 }
@@ -93,10 +101,10 @@ class tx_t3sponsors_views_SponsorList extends BaseView
             if ($configurations->get($confId . 'showBasePoint')) {
                 $lng = doubleval($configurations->get($confId . 'sponsor._basePosition.longitude'));
                 $lat = doubleval($configurations->get($confId . 'sponsor._basePosition.latitude'));
-                $coords = tx_rnbase::makeInstance('tx_rnbase_maps_Coord');
+                $coords = tx_rnbase::makeInstance(Coord::class);
                 $coords->setLongitude($lng);
                 $coords->setLatitude($lat);
-                $marker = tx_rnbase::makeInstance('tx_rnbase_maps_DefaultMarker');
+                $marker = tx_rnbase::makeInstance(DefaultMarker::class);
                 $marker->setCoords($coords);
                 $marker->setDescription('###LABEL_BASEPOINT###');
                 $map->addMarker($marker);
@@ -114,17 +122,17 @@ class tx_t3sponsors_views_SponsorList extends BaseView
      *
      * @param tx_rnbase_maps_DefaultMarker $marker
      * @param tx_cfcleague_models_Club $club
-     * @param tx_rnbase_configurations $configurations
+     * @param RequestInterface $request
      */
-    private function addIcon($map, &$marker, $club, $configurations)
+    private function addIcon($map, &$marker, $club, RequestInterface $request)
     {
         $logo = $club->getFirstLogo();
         if ($logo) {
-            $imgConf = $configurations->get($this->getController()
+            $imgConf = $request->getConfigurations()->get($request
                 ->getConfId() . 'map.icon.clublogo.');
             $imgConf['file'] = $logo;
-            $url = $configurations->getCObj()->IMG_RESOURCE($imgConf);
-            $icon = new tx_rnbase_maps_google_Icon($map);
+            $url = $request->getConfigurations()->getCObj()->IMG_RESOURCE($imgConf);
+            $icon = new Icon($map);
             $icon->setName('club_' . $club->getUid());
 
             $height = intval($imgConf['file.']['maxH']);

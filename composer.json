@@ -1,49 +1,48 @@
 {
-	"name" : "digedag/t3sponsors",
-	"description" : "Simple TYPO3 extension with sponsors and categories.",
-	"type" : "typo3-cms-extension",
-	"keywords" : [
+	"name": "digedag/t3sponsors",
+	"description": "Simple TYPO3 extension with sponsors and categories.",
+	"type": "typo3-cms-extension",
+	"keywords": [
 		"TYPO3 CMS",
 		"mvc",
 		"catalog"
 	],
-	"homepage" : "http://www.system25.de/",
-	"license" : "GPL-2.0-or-later",
-	"authors" : [{
-			"name" : "René Nitzsche",
-			"email" : "rene@system25.de",
-			"role" : "Developer"
+	"homepage": "http://www.system25.de/",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "René Nitzsche",
+			"email": "rene@system25.de",
+			"role": "Developer"
 		}
 	],
-	"support" : {
-		"email" : "rene@system25.de",
-		"source" : "https://github.com/digedag/t3sponsors",
-		"issues" : "https://github.com/digedag/t3sponsors/issues"
+	"support": {
+		"email": "rene@system25.de",
+		"source": "https://github.com/digedag/t3sponsors",
+		"issues": "https://github.com/digedag/t3sponsors/issues"
 	},
-	"replace" : {
-		"typo3-ter/t3sponsors" : "self.version"
+	"replace": {
+		"typo3-ter/t3sponsors": "self.version"
 	},
-	"require" : {
+	"require": {
 		"typo3/cms-core": "^8.7 || ^9.5 || ^10.4 || ^11.5 || ^12.4",
 		"digedag/rn-base": "~1.18.0"
 	},
-	"autoload" : {
-		"classmap" : [
-			"actions/",
-			"filter/",
-			"marker/",
-			"models/",
-			"search/",
-			"sv1/",
-			"util/",
-			"views/"
-		]
+	"autoload": {
+		"psr-4": {
+			"System25\\T3sponsors\\": "Classes"
+		}
 	},
-    "extra": {
-        "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "extension-key": "t3sponsors",
-            "web-dir": ".Build/Web"
-      }
-    }
+	"extra": {
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"extension-key": "t3sponsors",
+			"web-dir": ".Build/Web"
+		},
+		"typo3/class-alias-loader": {
+			"class-alias-maps": [
+				"Migrations/Code/ClassAliasMap.php"
+			]
+		}
+	}
 }

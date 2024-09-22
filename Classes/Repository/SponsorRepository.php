@@ -1,8 +1,14 @@
 <?php
+
+namespace System25\T3sponsors\Repository;
+
+use Sys25\RnBase\Domain\Repository\PersistenceRepository;
+use System25\T3sponsors\Search\SponsorSearch;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2009-2024 Rene Nitzsche (rene[@]system25.de)
+ *  (c) 2007-2024 Rene Nitzsche (rene@system25.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,29 +28,16 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use Sys25\RnBase\Utility\Extensions;
-use Sys25\RnBase\Utility\WizIcon;
 
 /**
- * Class that adds the wizard icon.
+ * Service for accessing sponsor information
  *
- * @author René Nitzsche <rene[@]system25.de>
+ * @author Rene Nitzsche
  */
-class tx_t3sponsors_util_Wizicon extends WizIcon
+class SponsorRepository extends PersistenceRepository
 {
-    protected function getPluginData()
+    public function getSearchClass()
     {
-        $plugins = [];
-        $plugins['tx_t3sponsors'] = [
-            'icon' => 'EXT:t3sponsors/ext_icon.gif',
-            'title' => 'plugin.t3sponsors.label',
-            'description' => 'plugin.t3sponsors.description'
-        ];
-        return $plugins;
-    }
-
-    protected function getLLFile()
-    {
-        return Extensions::extPath('t3sponsors') . 'Resources/Private/Language/locallang_db.xlf';
+        return SponsorSearch::class;
     }
 }

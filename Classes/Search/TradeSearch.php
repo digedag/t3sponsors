@@ -1,8 +1,15 @@
 <?php
+
+namespace System25\T3sponsors\Search;
+
+use Sys25\RnBase\Database\Query\Join;
+use Sys25\RnBase\Search\SearchBase;
+use System25\T3sponsors\Model\Trade;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2015-2018 Rene Nitzsche
+ *  (c) 2015-2024 Rene Nitzsche
  *  Contact: rene@system25.de
  *  All rights reserved
  *
@@ -20,22 +27,27 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  ***************************************************************/
-tx_rnbase::load('tx_rnbase_util_SearchBase');
 
 /**
  * Class to search trades from database
  *
  * @author Rene Nitzsche
  */
-class tx_t3sponsors_search_Trade extends tx_rnbase_util_SearchBase
+class TradeSearch extends SearchBase
 {
     protected function getTableMappings()
     {
-        $tableMapping = array();
+        $tableMapping = [];
         $tableMapping['SPONSOR'] = 'tx_t3sponsors_companies';
         $tableMapping['TRADEMM'] = 'tx_t3sponsors_trades_mm';
-        $tableMapping['TRADE'] = 'tx_t3sponsors_trades';
+        $tableMapping[$this->getBaseTableAlias()] = $this->getBaseTable();
+
         return $tableMapping;
+    }
+
+    protected function getBaseTableAlias()
+    {
+        return 'TRADE';
     }
 
     protected function getBaseTable()
@@ -45,17 +57,17 @@ class tx_t3sponsors_search_Trade extends tx_rnbase_util_SearchBase
 
     public function getWrapperClass()
     {
-        return 'tx_t3sponsors_models_Trade';
+        return Trade::class;
     }
 
     protected function getJoins($tableAliases)
     {
-        $join = '';
+        $join = [];
         if (isset($tableAliases['TRADEMM']) || isset($tableAliases['SPONSOR'])) {
-            $join .= ' JOIN tx_t3sponsors_trades_mm ON tx_t3sponsors_trades.uid = tx_t3sponsors_trades_mm.uid_local';
+            $join[] = new Join('TRADE', 'tx_t3sponsors_trades_mm', 'TRADE.uid = TRADEMM.uid_local', 'TRADEMM');
         }
         if (isset($tableAliases['SPONSOR'])) {
-            $join .= ' JOIN tx_t3sponsors_companies ON tx_t3sponsors_companies.uid = tx_t3sponsors_trades_mm.uid_foreign';
+            $join[] = new Join('TRADEMM', 'tx_t3sponsors_companies', 'SPONSOR.uid = TRADEMM.uid_foreign', 'SPONSOR');
         }
         return $join;
     }
