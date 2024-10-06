@@ -1,10 +1,11 @@
 <?php
+
 if (!(defined('TYPO3') || defined('TYPO3_MODE'))) {
     exit('Access denied.');
 }
 
-$t3s_companies = array(
-        'ctrl' => array(
+$t3s_companies = [
+        'ctrl' => [
             'title'     => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies',
             'label' => 'name1',
             'searchFields' => 'uid,name1,name2,address,city,zip,email,tags,contactlastname',
@@ -17,18 +18,18 @@ $t3s_companies = array(
             'dividers2tabs' => true,
             'default_sortby' => 'ORDER BY name1 asc',
             'delete' => 'deleted',
-            'enablecolumns' => array(
+            'enablecolumns' => [
                 'disabled' => 'hidden',
-            ),
+             ],
             'iconfile' => 'EXT:t3sponsors/Resources/Public/Icons/ext_icon.gif',
-        ),
-        'interface' => array(
+        ],
+        'interface' => [
                 'showRecordFieldList' => 'hidden,name1,name2'
-        ),
-        'feInterface' => array(
+        ],
+        'feInterface' => [
             'fe_admin_fieldList' => 'name1,name2,description,comment',
-        ),
-        'columns' => array(
+        ],
+        'columns' => [
                 'hidden' => array(
                         'exclude' => 1,
                         'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
@@ -242,11 +243,12 @@ $t3s_companies = array(
                                 'eval' => 'trim',
                         )
                 ),
-                'categories' => array(
+                'categories' => [
                         'exclude' => 1,
                         'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_categories',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'size' => 20,
                                 'autoSizeMax' => 50,
                                 'minitems' => 0,
@@ -256,16 +258,17 @@ $t3s_companies = array(
                                 'MM' => 'tx_t3sponsors_categories_mm',
                                 'MM_foreign_select' => 1,  // wird wohl nicht verwendet...
                                 'MM_opposite_field' => 'sponsors',
-                                'MM_match_fields' => array(
+                                'MM_match_fields' => [
                                         'tablenames' => 'tx_t3sponsors_companies',
-                                ),
-                        )
-                ),
+                                ],
+                        ]
+                ],
                 'trades' => array(
                         'exclude' => 1,
                         'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_trades',
                         'config' => array(
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'size' => 20,
                                 'autoSizeMax' => 50,
                                 'minitems' => 0,
@@ -280,20 +283,20 @@ $t3s_companies = array(
                                 ),
                         )
                 ),
-        ),
-        'types' => array(
-                '0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l18n_parent, l18n_diffsource,hidden;;1;;1-1-1,name1,name2,description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],categories,trades,damlogo,logo,dampictures,pictures,comment,tags,hasreport,
-		--div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],www,email,phone,fax,mobile')
-        ),
-        'palettes' => array(
-                '1' => array('showitem' => '')
-        )
-);
+        ],
+        'types' => [
+                '0' => ['showitem' => 'sys_language_uid;;;;1-1-1, l18n_parent, l18n_diffsource,hidden;;1;;1-1-1,name1,name2,description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],categories,trades,damlogo,logo,dampictures,pictures,comment,tags,hasreport,
+                --div--;LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies_tabcontact,contactfirstname,contactlastname,address,zip,city,countrycode,lng,lat,openingtime;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/rte/],www,email,phone,fax,mobile']
+        ],
+        'palettes' => [
+                '1' => ['showitem' => '']
+        ]
+];
 
-$t3s_companies['columns']['logo'] = tx_rnbase_util_TSFAL::getMediaTCA('logo', array(
+$t3s_companies['columns']['logo'] = \Sys25\RnBase\Utility\TSFAL::getMediaTCA('logo', array(
         'label' => 'LLL:EXT:t3sponsors/Resources/Private/Language/locallang_db.xlf:tx_t3sponsors_companies.logo',
         'config' => array('size' => 1, 'maxitems' => 1),
 ));
-$t3s_companies['columns']['pictures'] = tx_rnbase_util_TSFAL::getMediaTCA('pictures');
+$t3s_companies['columns']['pictures'] = \Sys25\RnBase\Utility\TSFAL::getMediaTCA('pictures');
 
 return $t3s_companies;

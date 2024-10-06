@@ -7,3 +7,6 @@ services:
   System25\T3sponsors\:
     resource: '../Classes/*'
     exclude: ['../Classes/Model/*']
+
+  System25\T3sponsors\Frontend\Filter\FormFilter:
+    public: true
