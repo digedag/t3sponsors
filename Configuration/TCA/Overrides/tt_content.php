@@ -12,10 +12,10 @@ call_user_func(function () {
     ////////////////////////////////
 
     // Einige Felder ausblenden
-    $TCA['tt_content']['types']['list']['subtypes_excludelist']['tx_t3sponsors']='layout,select_key,pages';
+    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tx_t3sponsors']='layout,select_key,pages';
 
     // Das tt_content-Feld pi_flexform einblenden
-    $TCA['tt_content']['types']['list']['subtypes_addlist']['tx_t3sponsors']='pi_flexform';
+    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tx_t3sponsors']='pi_flexform';
 
     \Sys25\RnBase\Utility\Extensions::addPiFlexFormValue(
         'tx_t3sponsors', 

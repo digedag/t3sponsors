@@ -51,13 +51,12 @@ class FormFilter extends BaseFilter
     private $categoryRepo;
     private $tradeRepo;
 
-    public function __construct($request, $confId)
+    public function __construct(CategoryRepository $categoryRepo, TradeRepository $tradeRepo)
     {
-        parent::__construct($request, $confId);
-        $repoRegistry = tx_rnbase::makeInstance(RepositoryRegistry::class);
-        $this->categoryRepo = $repoRegistry->getRepositoryForClass(CategoryRepository::class) ?: tx_rnbase::makeInstance(CategoryRepository::class);
-        $this->tradeRepo = $repoRegistry->getRepositoryForClass(TradeRepository::class) ?: tx_rnbase::makeInstance(TradeRepository::class);
+        $this->categoryRepo = $categoryRepo;
+        $this->tradeRepo = $tradeRepo;
     }
+
     /**
      * Abgeleitete Filter können diese Methode überschreiben und zusätzliche Filter setzen
      *
