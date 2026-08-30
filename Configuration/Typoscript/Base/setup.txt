@@ -82,7 +82,7 @@ lib.t3sponsors.sponsor {
     userFunc = tx_rnbase_util_TSDAM->printImages
     refField = pictures
     refTable = tx_t3sponsors_companies
-    template = EXT:rn_base/res/simplegallery.html
+    template = EXT:rn_base/Resources/Private/Templates/simplegallery.html
     media {
       file = IMAGE
       file.file.import.field = file
